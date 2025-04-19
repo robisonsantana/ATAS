@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Enviar Email</title>
+</head>
+<body>
+<h2>Enviar Email Personalizado</h2>
+<form action="#" th:action="@{/email/enviar}" th:object="${email}" method="post">
+    <label>De:</label>
+    <input type="text" th:field="*{from}" /><br/>
+
+    <label>Para:</label>
+    <input type="text" th:field="*{to}" /><br/>
+
+    <label>Assunto:</label>
+    <input type="text" th:field="*{subject}" /><br/>
+
+    <label>Mensagem:</label><br/>
+    <textarea th:field="*{body}" rows="10" cols="30"></textarea><br/>
+
+    <button type="submit">Enviar</button>
+</form>
+</body>
+</html>
