@@ -18,7 +18,7 @@ public class EmailController {
     @GetMapping("/formulario")
     public String mostrarFormulario(Model model){
         model.addAttribute("email", new Email());
-        return "email-formulario";
+        return "email/email-formulario";
     }
 
     @PostMapping("/enviar")

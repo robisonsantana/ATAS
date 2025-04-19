@@ -25,7 +25,7 @@ public class UsuarioController {
     @GetMapping("/")
     public ModelAndView login() {
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("templates/login/login/login/login");
+        modelAndView.setViewName("login/login");
         modelAndView.addObject("usuario", new Usuario());
         return modelAndView;
     }
@@ -34,7 +34,7 @@ public class UsuarioController {
     public ModelAndView cadastrar() {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("usuario", new Usuario());
-        modelAndView.setViewName("templates/login/login/login/cadastro");
+        modelAndView.setViewName("login/cadastro");
         return modelAndView;
     }
 
@@ -55,7 +55,7 @@ public class UsuarioController {
 
         ModelAndView modelAndView = new ModelAndView();
         if (br.hasErrors()) {
-            modelAndView.setViewName("template/login/login");
+            modelAndView.setViewName("login/login");
             return modelAndView;
         }
 
@@ -63,7 +63,7 @@ public class UsuarioController {
         Usuario usuarioLogin = serviceUsuario.login(usuario.getEmail(), usuario.getSenha());
         if (usuarioLogin == null) {
             modelAndView.addObject("erro", "Credenciais inválidas");
-            modelAndView.setViewName("template/login/login");
+            modelAndView.setViewName("login/login");
         } else {
             session.setAttribute("usuarioLogado", usuarioLogin);
             modelAndView.setViewName("redirect:/pagina-inicial");

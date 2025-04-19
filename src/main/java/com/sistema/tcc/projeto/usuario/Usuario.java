@@ -5,7 +5,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
-import jakarta.validation.constraints.NotEmpty;
+//import jakarta.validation.constraints.NotEmpty;
 
 import java.io.Serializable;
 
@@ -21,9 +21,7 @@ public class Usuario implements Serializable {
 
     private String nome;
     private String sobrenome;
-    @NotEmpty(message = "O email é obrigatório")
     private String email;
-    @NotEmpty(message = "A senha é obrigatória")
     private String senha;
 
     public Long getRa() {
