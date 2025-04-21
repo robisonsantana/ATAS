@@ -59,7 +59,6 @@ public class UsuarioController {
             return modelAndView;
         }
 
-        // Adicione a lógica de autenticação
         Usuario usuarioLogin = serviceUsuario.login(usuario.getEmail(), usuario.getSenha());
         if (usuarioLogin == null) {
             modelAndView.addObject("erro", "Credenciais inválidas");
