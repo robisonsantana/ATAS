@@ -22,7 +22,7 @@ public class UsuarioController {
     @Autowired
     private ServiceUsuario serviceUsuario;
 
-    @GetMapping("/")
+    @GetMapping("/logar")
     public ModelAndView login() {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("login/login");
