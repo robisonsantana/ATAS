@@ -23,6 +23,7 @@ public class Usuario implements Serializable {
     private String sobrenome;
     private String email;
     private String senha;
+    private String acesso;
 
     public Long getRa() {
         return ra;
