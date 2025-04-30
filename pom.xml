@@ -79,6 +79,11 @@
 			<version>8.0.33</version>
 			<scope>runtime</scope>
 		</dependency>
+<!--		Dependencia do OAUTH2-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-oauth2-client</artifactId>
+		</dependency>
 	</dependencies>
 
 	<build>
