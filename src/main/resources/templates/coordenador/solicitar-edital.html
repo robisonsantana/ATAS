@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="pt-br" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Solicitar Edital</title>
     <style>
+
       .search-container {
         max-width: 800px;
         margin: 20px auto;
@@ -15,6 +16,7 @@
         padding: 20px;
         border-radius: 5px;
         margin-bottom: 20px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
       }
       .result-table {
         margin-top: 20px;
@@ -34,18 +36,22 @@
   <div class="search-box">
     <form method="get" th:action="@`{/editais}">
       <div class="row g-3">
+
         <div class="col-md-6">
           <label for="nomeEdital" class="form-label">Nome do Edital</label>
           <input type="text" class="form-control" id="nomeEdital" name="nomeEdital" placeholder="Digite o nome">
         </div>
+
         <div class="col-md-6">
           <label for="declaracaoEdital" class="form-label">Declaração Edital</label>
           <textarea type="text" class="form-control" id="declaracaoEdital" name="declaracaoEdital" placeholder="Informe a declaração"></textarea>
         </div>
+
         <div>
           <button type="submit" class="btn btn-primay me-2">Solicitar</button>
           <button type="reset" class="btn btn-outline-secondary">Limpar</button>
         </div>
+
       </div>
     </form>
   </div>
