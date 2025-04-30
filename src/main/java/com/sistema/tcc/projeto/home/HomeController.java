@@ -17,15 +17,16 @@ public class HomeController {
         return "home/home";
     }
 
-    @GetMapping("/loggingin")
-    public String loggingin() {
-        return "home/loggingin";
-    }
-    @GetMapping("/logout")
-    public String logout(HttpServletRequest request, HttpServletResponse response) {
-        new SecurityContextLogoutHandler().logout(request, response,
-                SecurityContextHolder.getContext().getAuthentication());
-        return "home/home";
-    }
+//    @GetMapping("/loggingin")
+//    public String loggingin() {
+//        return "home/loggingin";
+//    }
+
+//    @GetMapping("/logout")
+//    public String logout(HttpServletRequest request, HttpServletResponse response) {
+//        new SecurityContextLogoutHandler().logout(request, response,
+//                SecurityContextHolder.getContext().getAuthentication());
+//        return "home/home";
+   // }
 
 }
