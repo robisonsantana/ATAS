@@ -1,0 +1,11 @@
+<div class="dashboard-container">
+  <div class="menu-grid">
+    <button 
+      class="menu-item" 
+      *ngFor="let item of menuItems" 
+      (click)="navigateTo(item.route)"
+    >
+      {{ item.title }}
+    </button>
+  </div>
+</div>
