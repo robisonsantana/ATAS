@@ -1,0 +1,25 @@
+<header class="header">
+  <div class="header-left">
+    <div class="logo">
+      ATA System
+    </div>
+  </div>
+
+  <div class="header-center">
+    <h1 class="main-title">Menu Principal</h1>
+  </div>
+
+  <div class="header-right">
+    <button class="login-btn" (click)="onLogin()">
+      Login
+    </button>
+
+    <div class="notification-container" (click)="onNotificationClick()">
+      <span class="notification-icon">🔔</span>
+      <span class="notification-text">Notificações</span>
+      <span class="notification-badge" *ngIf="notificationCount > 0">
+        {{ notificationCount }}
+      </span>
+    </div>
+  </div>
+</header>

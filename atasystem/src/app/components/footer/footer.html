@@ -1,0 +1,12 @@
+<footer class="footer">
+  <div class="footer-content">
+    <div class="footer-links">
+      <span 
+        class="footer-item" 
+        *ngFor="let item of footerItems; let last = last"
+      >
+        {{ item }}<span *ngIf="!last" class="separator"> | </span>
+      </span>
+    </div>
+  </div>
+</footer>
