@@ -14,9 +14,9 @@ rotas do angular configuradas: <br>
 - http://localhost:4200/register
 - http://localhost:4200/dashboard
 
-comandos pra não esquecer:
-npm run start
-ng generate component /components/...
+comandos pra não esquecer: <br>
+npm run start <br>
+ng generate component /components/... <br>
 
 java = http://localhost:8080/ <br>
 
