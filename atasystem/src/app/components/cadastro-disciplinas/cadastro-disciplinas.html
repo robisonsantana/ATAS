@@ -1,0 +1,125 @@
+<div class="cadastro-container">
+  <div class="cadastro-form-box">
+    
+    <div class="message-container" *ngIf="errorMessage || successMessage">
+      <div *ngIf="errorMessage" class="error-message">
+        {{ errorMessage }}
+      </div>
+      <div *ngIf="successMessage" class="success-message">
+        {{ successMessage }}
+      </div>
+    </div>
+
+    <form class="cadastro-form" (ngSubmit)="onEnviar()" (input)="clearMessages()">
+      
+      <div class="form-row">
+        <div class="form-group half-width">
+          <label for="disciplina" class="form-label">Disciplina</label>
+          <input 
+            type="text" 
+            id="disciplina"
+            class="form-input"
+            [(ngModel)]="disciplina"
+            name="disciplina"
+            [disabled]="loading"
+            placeholder="Nome da disciplina"
+          >
+        </div>
+
+        <div class="form-group half-width">
+          <label for="ementa" class="form-label">Ementa</label>
+          <textarea 
+            id="ementa"
+            class="form-textarea small"
+            [(ngModel)]="ementa"
+            name="ementa"
+            [disabled]="loading"
+            placeholder="Resumo da ementa"
+            rows="3"
+          ></textarea>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group half-width">
+          <label for="curso" class="form-label">Curso</label>
+          <input 
+            type="text" 
+            id="curso"
+            class="form-input"
+            [(ngModel)]="curso"
+            name="curso"
+            [disabled]="loading"
+            placeholder="Nome do curso"
+          >
+        </div>
+
+        <div class="form-group half-width">
+          <label for="descricao" class="form-label">Descrição</label>
+          <textarea 
+            id="descricao"
+            class="form-textarea large"
+            [(ngModel)]="descricao"
+            name="descricao"
+            [disabled]="loading"
+            placeholder="Descrição detalhada da disciplina"
+            rows="5"
+          ></textarea>
+        </div>
+      </div>
+
+      <div class="form-group full-width">
+        <label for="objetivo" class="form-label">Objetivo</label>
+        <textarea 
+          id="objetivo"
+          class="form-textarea medium"
+          [(ngModel)]="objetivo"
+          name="objetivo"
+          [disabled]="loading"
+          placeholder="Objetivos da disciplina"
+          rows="4"
+        ></textarea>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Turno</label>
+        <div class="radio-group">
+          <div class="radio-item">
+            <input 
+              type="radio" 
+              id="tarde" 
+              name="turno" 
+              value="Tarde"
+              [(ngModel)]="turno"
+              [disabled]="loading"
+            >
+            <label for="tarde" class="radio-label">Tarde</label>
+          </div>
+          <div class="radio-item">
+            <input 
+              type="radio" 
+              id="noite" 
+              name="turno" 
+              value="Noite"
+              [(ngModel)]="turno"
+              [disabled]="loading"
+            >
+            <label for="noite" class="radio-label">Noite</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="button-group">
+        <button type="submit" class="submit-btn" [disabled]="loading">
+          <span *ngIf="!loading">Enviar</span>
+          <span *ngIf="loading">Enviando...</span>
+        </button>
+
+        <button type="button" class="clear-btn" (click)="onLimpar()" [disabled]="loading">
+          Limpar
+        </button>
+      </div>
+
+    </form>
+  </div>
+</div>
