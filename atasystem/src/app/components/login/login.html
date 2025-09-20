@@ -1,0 +1,61 @@
+<div class="login-container">
+  <div class="login-box">
+    <form class="login-form" (ngSubmit)="onLogin()">
+      
+      <div class="form-group">
+        <label for="email" class="form-label">E-mail</label>
+        <input 
+          type="email" 
+          id="email" 
+          class="form-input"
+          [(ngModel)]="email"
+          name="email"
+          required
+        >
+      </div>
+
+      <div class="form-group">
+        <label for="password" class="form-label">Senha</label>
+        <input 
+          type="password" 
+          id="password" 
+          class="form-input"
+          [(ngModel)]="password"
+          name="password"
+          required
+        >
+      </div>
+
+      <button 
+        type="button" 
+        class="social-btn microsoft-btn"
+        (click)="onMicrosoftLogin()"
+      >
+        <div class="microsoft-logo"></div>
+        Entrar com Microsoft
+      </button>
+
+      <button 
+        type="button" 
+        class="social-btn google-btn"
+        (click)="onGoogleLogin()"
+      >
+        <div class="google-logo">G</div>
+        Entrar com Google
+      </button>
+
+      <button type="submit" class="primary-btn">
+        Entrar
+      </button>
+
+      <button 
+        type="button" 
+        class="secondary-btn"
+        (click)="onRegister()"
+      >
+        Cadastrar Usuário
+      </button>
+
+    </form>
+  </div>
+</div>

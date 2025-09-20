@@ -1,0 +1,147 @@
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 120px);
+  background-color: #f8f9fa;
+  padding: 20px;
+}
+
+.login-box {
+  background-color: #c0c0c0;
+  border-radius: 12px;
+  padding: 40px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-label {
+  font-size: 14px;
+  color: #333;
+  font-weight: 500;
+}
+
+.form-input {
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  background-color: white;
+  transition: border-color 0.3s;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+.social-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s;
+  color: white;
+  font-weight: 500;
+}
+
+.microsoft-btn {
+  background-color: #0078d4;
+}
+
+.microsoft-btn:hover {
+  background-color: #106ebe;
+}
+
+.microsoft-logo {
+  width: 18px;
+  height: 18px;
+  background: linear-gradient(45deg, #f25022 25%, #7fba00 25% 50%, #00a4ef 50% 75%, #ffb900 75%);
+  border-radius: 2px;
+}
+
+.google-btn {
+  background-color: #db4437;
+}
+
+.google-btn:hover {
+  background-color: #c23321;
+}
+
+.google-logo {
+  width: 18px;
+  height: 18px;
+  background: white;
+  color: #db4437;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.primary-btn {
+  background-color: #6c757d;
+  color: white;
+  border: none;
+  padding: 14px;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.primary-btn:hover {
+  background-color: #5a6268;
+}
+
+.secondary-btn {
+  background-color: #6c757d;
+  color: white;
+  border: none;
+  padding: 14px;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.secondary-btn:hover {
+  background-color: #5a6268;
+}
+
+@media (max-width: 480px) {
+  .login-box {
+    padding: 30px 20px;
+    margin: 10px;
+  }
+  
+  .social-btn,
+  .primary-btn,
+  .secondary-btn {
+    padding: 12px;
+    font-size: 14px;
+  }
+}

@@ -1,0 +1,160 @@
+.register-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 120px);
+  background-color: #f8f9fa;
+  padding: 20px;
+}
+
+.register-box {
+  background-color: #c0c0c0;
+  border-radius: 12px;
+  padding: 30px;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.social-buttons {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.social-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.3s;
+  color: white;
+  font-weight: 500;
+  flex: 1;
+}
+
+.microsoft-btn {
+  background-color: #0078d4;
+}
+
+.microsoft-btn:hover {
+  background-color: #106ebe;
+}
+
+.microsoft-logo {
+  width: 16px;
+  height: 16px;
+  background: linear-gradient(45deg, #f25022 25%, #7fba00 25% 50%, #00a4ef 50% 75%, #ffb900 75%);
+  border-radius: 2px;
+}
+
+.google-btn {
+  background-color: #db4437;
+}
+
+.google-btn:hover {
+  background-color: #c23321;
+}
+
+.google-logo {
+  width: 16px;
+  height: 16px;
+  background: white;
+  color: #db4437;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 10px;
+}
+
+.form-header {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.form-subtitle {
+  color: #555;
+  font-size: 16px;
+  margin: 0;
+  font-weight: 500;
+}
+
+.register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-input {
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  background-color: white;
+  transition: border-color 0.3s;
+}
+
+.form-input::placeholder {
+  color: #999;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+.primary-btn {
+  background-color: #6c757d;
+  color: white;
+  border: none;
+  padding: 14px;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 10px;
+}
+
+.primary-btn:hover {
+  background-color: #5a6268;
+}
+
+@media (max-width: 600px) {
+  .social-buttons {
+    flex-direction: column;
+  }
+  
+  .social-btn {
+    font-size: 12px;
+    padding: 8px;
+  }
+  
+  .register-box {
+    padding: 25px 20px;
+    margin: 10px;
+  }
+  
+  .form-input {
+    padding: 10px;
+    font-size: 13px;
+  }
+  
+  .primary-btn {
+    padding: 12px;
+    font-size: 14px;
+  }
+}

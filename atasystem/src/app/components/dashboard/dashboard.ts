@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 interface MenuItem {
   title: string;
@@ -42,6 +43,8 @@ export class DashboardComponent {
       route: '/montar-banca'
     }
   ];
+
+  constructor(private router: Router) {}
 
   navigateTo(route: string) {
     console.log('Navigating to:', route);
