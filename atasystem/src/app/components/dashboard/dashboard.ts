@@ -48,5 +48,6 @@ export class DashboardComponent {
 
   navigateTo(route: string) {
     console.log('Navigating to:', route);
+    this.router.navigate([route]);
   }
 }

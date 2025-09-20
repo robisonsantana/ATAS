@@ -1,0 +1,140 @@
+import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
+
+interface Disciplina {
+  id: number;
+  nome: string;
+}
+
+interface Turno {
+  id: string;
+  nome: string;
+}
+
+@Component({
+  selector: 'app-solicitar-edital',
+  standalone: true,
+  imports: [CommonModule, FormsModule],
+  templateUrl: './solicitar-edital.html',
+  styleUrls: ['./solicitar-edital.css']
+})
+export class SolicitarEditalComponent {
+  // dados do formulário
+  disciplinaSelecionada: string = '';
+  turnoSelecionado: string = '';
+  horario: string = '';
+  diaSemana: string = '';
+  
+  // radio buttons
+  modalidade: string = '';
+  tipo: string = '';
+
+  // estados
+  loading: boolean = false;
+  successMessage: string = '';
+  errorMessage: string = '';
+
+  // opçoes de disciplina (depois alterar pra apenas as disciplinas cadastradas)
+  disciplinas: Disciplina[] = [
+    { id: 1, nome: 'Matemática' },
+    { id: 2, nome: 'Português' },
+    { id: 3, nome: 'História' },
+    { id: 4, nome: 'Geografia' },
+    { id: 5, nome: 'Ciências' },
+    { id: 6, nome: 'Inglês' },
+    { id: 7, nome: 'Educação Física' },
+    { id: 8, nome: 'Artes' }
+  ];
+
+  turnos: Turno[] = [
+    { id: 'manha', nome: 'Manhã' },
+    { id: 'tarde', nome: 'Tarde' },
+    { id: 'noite', nome: 'Noite' }
+  ];
+
+  diasSemana: string[] = [
+    'Segunda-feira',
+    'Terça-feira', 
+    'Quarta-feira',
+    'Quinta-feira',
+    'Sexta-feira',
+    'Sábado'
+  ];
+
+  constructor(private router: Router) {}
+
+  onSubmit() {
+    // verificaçoes
+    if (!this.disciplinaSelecionada) {
+      this.errorMessage = 'Selecione o nome da disciplina';
+      return;
+    }
+
+    if (!this.turnoSelecionado) {
+      this.errorMessage = 'Selecione o turno';
+      return;
+    }
+
+    if (!this.horario) {
+      this.errorMessage = 'Informe o horário';
+      return;
+    }
+
+    if (!this.diaSemana) {
+      this.errorMessage = 'Selecione o dia da semana';
+      return;
+    }
+
+    if (!this.modalidade) {
+      this.errorMessage = 'Selecione a modalidade';
+      return;
+    }
+
+    if (!this.tipo) {
+      this.errorMessage = 'Selecione o tipo';
+      return;
+    }
+
+    this.loading = true;
+    this.errorMessage = '';
+
+    const solicitacao = {
+      disciplina: this.disciplinaSelecionada,
+      turno: this.turnoSelecionado,
+      horario: this.horario,
+      diaSemana: this.diaSemana,
+      modalidade: this.modalidade,
+      tipo: this.tipo,
+      dataEnvio: new Date()
+    };
+
+    console.log('Solicitação de edital:', solicitacao);
+
+    // simular delay da API
+    setTimeout(() => {
+      this.loading = false;
+      this.successMessage = 'Solicitação enviada com sucesso!';
+      
+      setTimeout(() => {
+        this.clearForm();
+        this.successMessage = '';
+      }, 2000);
+    }, 1500);
+  }
+
+  private clearForm() {
+    this.disciplinaSelecionada = '';
+    this.turnoSelecionado = '';
+    this.horario = '';
+    this.diaSemana = '';
+    this.modalidade = '';
+    this.tipo = '';
+  }
+
+  clearMessages() {
+    this.errorMessage = '';
+    this.successMessage = '';
+  }
+}

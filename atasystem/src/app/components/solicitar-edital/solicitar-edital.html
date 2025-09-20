@@ -1,0 +1,152 @@
+<div class="edital-container">
+  <div class="edital-form-box">
+    
+    <div class="message-container" *ngIf="errorMessage || successMessage">
+      <div *ngIf="errorMessage" class="error-message">
+        {{ errorMessage }}
+      </div>
+      <div *ngIf="successMessage" class="success-message">
+        {{ successMessage }}
+      </div>
+    </div>
+
+    <form class="edital-form" (ngSubmit)="onSubmit()" (input)="clearMessages()">
+      
+      <div class="form-group">
+        <label for="disciplina" class="form-label">Selecione o nome da disciplina</label>
+        <select 
+          id="disciplina"
+          class="form-select"
+          [(ngModel)]="disciplinaSelecionada"
+          name="disciplina"
+          [disabled]="loading"
+        >
+          <option value="">Selecionar</option>
+          <option *ngFor="let disciplina of disciplinas" [value]="disciplina.nome">
+            {{ disciplina.nome }}
+          </option>
+        </select>
+        <div class="select-arrow"></div>
+      </div>
+
+      <div class="form-group">
+        <label for="turno" class="form-label">Turno</label>
+        <select 
+          id="turno"
+          class="form-select"
+          [(ngModel)]="turnoSelecionado"
+          name="turno"
+          [disabled]="loading"
+        >
+          <option value="">Selecionar</option>
+          <option *ngFor="let turno of turnos" [value]="turno.id">
+            {{ turno.nome }}
+          </option>
+        </select>
+        <div class="select-arrow"></div>
+      </div>
+
+      <div class="form-group">
+        <label for="horario" class="form-label">Horário</label>
+        <input 
+          type="time" 
+          id="horario"
+          class="form-input"
+          [(ngModel)]="horario"
+          name="horario"
+          [disabled]="loading"
+        >
+      </div>
+
+      <div class="form-group">
+        <label for="diaSemana" class="form-label">Dia da Semana</label>
+        <select 
+          id="diaSemana"
+          class="form-select"
+          [(ngModel)]="diaSemana"
+          name="diaSemana"
+          [disabled]="loading"
+        >
+          <option value="">Selecionar</option>
+          <option *ngFor="let dia of diasSemana" [value]="dia">
+            {{ dia }}
+          </option>
+        </select>
+        <div class="select-arrow"></div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Modalidade</label>
+        <div class="radio-group">
+          <div class="radio-item">
+            <input 
+              type="radio" 
+              id="presencial" 
+              name="modalidade" 
+              value="Presencial"
+              [(ngModel)]="modalidade"
+              [disabled]="loading"
+            >
+            <label for="presencial" class="radio-label">Presencial</label>
+          </div>
+          <div class="radio-item">
+            <input 
+              type="radio" 
+              id="hibrido" 
+              name="modalidade" 
+              value="Híbrido"
+              [(ngModel)]="modalidade"
+              [disabled]="loading"
+            >
+            <label for="hibrido" class="radio-label">Híbrido</label>
+          </div>
+          <div class="radio-item">
+            <input 
+              type="radio" 
+              id="online" 
+              name="modalidade" 
+              value="Online"
+              [(ngModel)]="modalidade"
+              [disabled]="loading"
+            >
+            <label for="online" class="radio-label">Online</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Tipo</label>
+        <div class="radio-group">
+          <div class="radio-item">
+            <input 
+              type="radio" 
+              id="determinado" 
+              name="tipo" 
+              value="Determinado"
+              [(ngModel)]="tipo"
+              [disabled]="loading"
+            >
+            <label for="determinado" class="radio-label">Determinado</label>
+          </div>
+          <div class="radio-item">
+            <input 
+              type="radio" 
+              id="indeterminado" 
+              name="tipo" 
+              value="Indeterminado"
+              [(ngModel)]="tipo"
+              [disabled]="loading"
+            >
+            <label for="indeterminado" class="radio-label">Indeterminado</label>
+          </div>
+        </div>
+      </div>
+
+      <button type="submit" class="submit-btn" [disabled]="loading">
+        <span *ngIf="!loading">Enviar solicitação</span>
+        <span *ngIf="loading">Enviando...</span>
+      </button>
+
+    </form>
+  </div>
+</div>

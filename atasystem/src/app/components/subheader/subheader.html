@@ -1,0 +1,12 @@
+<div *ngIf="shouldShow()" class="subheader">
+  <div class="subheader-container">
+    <button 
+      *ngFor="let item of menuItems"
+      class="subheader-item"
+      [class.active]="item.active"
+      (click)="navigateTo(item.route)"
+    >
+      {{ item.title }}
+    </button>
+  </div>
+</div>
