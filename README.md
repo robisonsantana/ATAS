@@ -9,10 +9,12 @@ Instalar Lombok <br>
 Criar instancia MySQL com senha 1234 <br>
 angular = http://localhost:4200/ <br>
 
-rotas do angular configuradas: <br>
+rotas do angular configuradas com tela: <br>
 - http://localhost:4200/login
 - http://localhost:4200/register
 - http://localhost:4200/dashboard
+- http://localhost:4200/cadastro-disciplinas
+- http://localhost:4200/solicitar-edital
 
 comandos pra não esquecer: <br>
 npm run start <br>
