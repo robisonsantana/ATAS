@@ -1,0 +1,96 @@
+<div class="register-container">
+  <div class="register-box">
+    
+    <div class="social-buttons">
+      <button 
+        type="button" 
+        class="social-btn microsoft-btn"
+        (click)="onMicrosoftRegister()"
+      >
+        <div class="microsoft-logo"></div>
+        Entrar com Microsoft
+      </button>
+
+      <button 
+        type="button" 
+        class="social-btn google-btn"
+        (click)="onGoogleRegister()"
+      >
+        <div class="google-logo">G</div>
+        Entrar com Google
+      </button>
+    </div>
+
+    <div class="form-header">
+      <p class="form-subtitle">Preencha os dados do usuário</p>
+    </div>
+
+    <form class="register-form" (ngSubmit)="onRegister()">
+      
+      <div class="form-group">
+        <input 
+          type="text" 
+          id="ra" 
+          class="form-input"
+          placeholder="RA (Identificação)"
+          [(ngModel)]="ra"
+          name="ra"
+          required
+        >
+      </div>
+
+      <div class="form-group">
+        <input 
+          type="text" 
+          id="nome" 
+          class="form-input"
+          placeholder="Nome"
+          [(ngModel)]="nome"
+          name="nome"
+          required
+        >
+      </div>
+
+     <div class="form-group">
+        <input 
+          type="text" 
+          id="sobrenome" 
+          class="form-input"
+          placeholder="Sobrenome"
+          [(ngModel)]="sobrenome"
+          name="sobrenome"
+          required
+        >
+      </div>
+
+      <div class="form-group">
+        <input 
+          type="email" 
+          id="email" 
+          class="form-input"
+          placeholder="E-mail"
+          [(ngModel)]="email"
+          name="email"
+          required
+        >
+      </div>
+
+      <div class="form-group">
+        <input 
+          type="password" 
+          id="senha" 
+          class="form-input"
+          placeholder="Senha"
+          [(ngModel)]="senha"
+          name="senha"
+          required
+        >
+      </div>
+
+      <button type="submit" class="primary-btn">
+        Cadastrar Usuário
+      </button>
+
+    </form>
+  </div>
+</div>
