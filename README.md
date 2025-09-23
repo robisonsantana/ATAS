@@ -8,6 +8,8 @@ Configurar o java para o 17 <br>
 Instalar Lombok <br>
 Criar instancia MySQL com senha 1234 <br>
 
+Telas no figma: https://www.figma.com/design/DmX5rYPacwfhIaz0NVHhCi/Untitled?node-id=0-1&m=dev&t=bxBhNMdngWjRTYqY-1 <br>
+
 comandos instalação angular: <br> 
 sudo apt install npm -y <br>
 npm install <br>
@@ -36,7 +38,5 @@ Próximos passos:
 <br>
 
 <img width="671" height="377" alt="image" src="https://github.com/user-attachments/assets/94431bbb-3dc1-4892-905a-aa0e25612182" />
-
-
 
 Anthony, Brenda, Celline & Robison.
