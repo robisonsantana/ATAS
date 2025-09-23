@@ -38,9 +38,9 @@
 }
 
 .subheader-item.active {
-  color: #007bff;
-  border-bottom-color: #007bff;
-  background-color: rgba(0, 123, 255, 0.1);
+  color: #dc3545;
+  border-bottom-color: #dc3545;
+  background-color: rgba(255, 0, 0, 0.1);
 }
 
 @media (max-width: 1024px) {
