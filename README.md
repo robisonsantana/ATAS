@@ -8,10 +8,10 @@ Configurar o java para o 17 <br>
 Instalar Lombok <br>
 Criar instancia MySQL com senha 1234 <br>
 
-comandos instalação angular
-sudo apt install npm -y
-npm install
-npm install -g @angular/cli
+comandos instalação angular: <br> 
+sudo apt install npm -y <br>
+npm install <br>
+npm install -g @angular/cli <br>
 
 angular = http://localhost:4200/ <br>
 
