@@ -1,0 +1,34 @@
+<div class="montar-banca-container">
+  <div class="listas-container">
+    
+    <div class="lista">
+      <h3>Professores Disponíveis</h3>
+      <select multiple [(ngModel)]="selectedDisponiveis" class="select-list">
+        <option *ngFor="let professor of professoresDisponiveis" [value]="professor">
+          {{ professor }}
+        </option>
+      </select>
+    </div>
+
+    <div class="botoes">
+      <button (click)="moverParaComissao()">&gt;</button>
+      <button (click)="moverTodosParaComissao()">&gt;&gt;</button>
+      <button (click)="removerDaComissao()">&lt;</button>
+      <button (click)="removerTodosDaComissao()">&lt;&lt;</button>
+    </div>
+
+    <div class="lista">
+      <h3>Professores da Comissão</h3>
+      <select multiple [(ngModel)]="selectedComissao" class="select-list">
+        <option *ngFor="let professor of professoresComissao" [value]="professor">
+          {{ professor }}
+        </option>
+      </select>
+    </div>
+  </div>
+
+<div class="acoes">
+    <button class="cadastrar" (click)="cadastrarBanca()">Cadastrar Banca</button>
+    <button class="limpar" (click)="limpar()">Limpar</button> <!-- ✅ Botão Limpar -->
+  </div>
+</div>

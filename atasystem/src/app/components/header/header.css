@@ -18,6 +18,17 @@
   color: #FF161F;
 }
 
+.logo-image {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+}
+
+.logo-image:not([src]),
+.logo-image[src=""] {
+  display: none;
+}
+
 .header-center {
   flex: 2;
   text-align: center;
@@ -26,7 +37,7 @@
 .main-title {
   margin: 0;
   font-size: 24px;
-  font-weight: normal;
+  font-weight: bold;
   color: #333;
 }
 

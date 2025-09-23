@@ -1,0 +1,83 @@
+<div class="ata-container">
+  
+  <div class="sidebar">
+    <!-- <div class="sidebar-header">
+      <h3>FILTRAR EDITAIS</h3>
+      <div class="filter-icon">⚙️</div>
+    </div> -->
+    
+    <div class="editais-list">
+      <div 
+        *ngFor="let edital of editais"
+        class="edital-item"
+        [class.active]="edital.ativo"
+        (click)="selecionarEdital(edital)"
+      >
+        <span class="edital-numero">{{ edital.numero }}</span>
+        <div class="edital-icon">📄</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="main-content">
+    
+    <div *ngIf="successMessage" class="success-message">
+      {{ successMessage }}
+    </div>
+
+    <div *ngIf="editalSelecionado" class="ata-content">
+      
+      <div *ngIf="!modoEdicao" class="view-mode">
+        <div class="ata-text">{{ editalSelecionado.conteudo }}</div>
+      </div>
+
+      <div *ngIf="modoEdicao" class="edit-mode">
+        <textarea 
+          class="ata-textarea"
+          [(ngModel)]="conteudoEditado"
+          name="conteudo"
+          [disabled]="loading"
+          placeholder="Conteúdo da ATA"
+        ></textarea>
+      </div>
+
+      <div class="action-buttons">
+        
+        <div *ngIf="!modoEdicao" class="view-buttons">
+          <button class="btn-primary" (click)="iniciarEdicao()">
+            Editar
+          </button>
+          <button class="btn-secondary" (click)="baixarAta()">
+            Baixar
+            <span class="download-icon">⬇️</span>
+          </button>
+        </div>
+
+        <div *ngIf="modoEdicao" class="edit-buttons">
+          <button 
+            class="btn-primary" 
+            (click)="salvarEdicao()"
+            [disabled]="loading || !conteudoEditado.trim()"
+          >
+            <span *ngIf="!loading">Salvar</span>
+            <span *ngIf="loading">Salvando...</span>
+          </button>
+          <button 
+            class="btn-secondary" 
+            (click)="cancelarEdicao()"
+            [disabled]="loading"
+          >
+            Cancelar
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+    <div *ngIf="!editalSelecionado" class="no-selection">
+      <p>Selecione um edital para visualizar seu conteúdo</p>
+    </div>
+
+  </div>
+
+</div>
