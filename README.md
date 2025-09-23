@@ -33,4 +33,10 @@ java = http://localhost:8080/ <br>
 Próximos passos:
 - configurar api de conexao back com front
 
+<br>
+
+<img width="671" height="377" alt="image" src="https://github.com/user-attachments/assets/94431bbb-3dc1-4892-905a-aa0e25612182" />
+
+
+
 Anthony, Brenda, Celline & Robison.
