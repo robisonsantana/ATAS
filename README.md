@@ -7,6 +7,12 @@ Observações:
 Configurar o java para o 17 <br>
 Instalar Lombok <br>
 Criar instancia MySQL com senha 1234 <br>
+
+comandos instalação angular
+sudo apt install npm -y
+npm install
+npm install -g @angular/cli
+
 angular = http://localhost:4200/ <br>
 
 rotas do angular configuradas com tela: <br>
@@ -15,6 +21,8 @@ rotas do angular configuradas com tela: <br>
 - http://localhost:4200/dashboard
 - http://localhost:4200/cadastro-disciplinas
 - http://localhost:4200/solicitar-edital
+- http://localhost:4200/editar-ata
+- http://localhost:4200/montar-banca
 
 comandos pra não esquecer: <br>
 npm run start <br>
