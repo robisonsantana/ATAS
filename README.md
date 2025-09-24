@@ -1,5 +1,7 @@
-# ATAS
-
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/66281ed3-a2bd-4aff-81e8-ce24f879843c" alt="Logo Systema" width=300">
+</div>
+<br>
 Sistema de gerenciamento de editais de ampliação de carga horária para professores do Centro Paula Souza (Fatecs).
 
 Observações:
