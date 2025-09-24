@@ -1,11 +1,12 @@
 import { Routes } from '@angular/router';
-import { LoginComponent } from './components/login/login';
+
 import { DashboardComponent } from './components/dashboard/dashboard';
-import { RegisterComponent  } from "./components/register/register";
-import { SolicitarEditalComponent } from './components/solicitar-edital/solicitar-edital';
-import { CadastroDisciplinasComponent } from './components/cadastro-disciplinas/cadastro-disciplinas';
-import { EditarAtaComponent } from "./components/editar-ata/editar-ata";
-import { MontarBancaComponent } from './components/montar-banca/montar-banca';
+import { RegisterComponent  } from "./view/register/register";
+import { SolicitarEditalComponent } from './view/solicitar-edital/solicitar-edital';
+import { CadastroDisciplinasComponent } from './view/cadastro-disciplinas/cadastro-disciplinas';
+import { EditarAtaComponent } from "./view/editar-ata/editar-ata";
+import { MontarBancaComponent } from './view/montar-banca/montar-banca';
+import { LoginComponent } from './view/login/login';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
