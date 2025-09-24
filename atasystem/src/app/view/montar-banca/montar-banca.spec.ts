@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MontarBanca } from './montar-banca';
+import { MontarBancaComponent } from './montar-banca';
 
 describe('MontarBanca', () => {
-  let component: MontarBanca;
-  let fixture: ComponentFixture<MontarBanca>;
+  let component: MontarBancaComponent;
+  let fixture: ComponentFixture<MontarBancaComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [MontarBanca]
+      imports: [MontarBancaComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(MontarBanca);
+    fixture = TestBed.createComponent(MontarBancaComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
