@@ -176,14 +176,6 @@ src/main/java/
 - **Validação** de dados em múltiplas camadas
 - **Autorização** baseada em roles
 
-## Vantagens da Arquitetura
-
-- **Separação de Responsabilidades**: Cada camada tem função específica
-- **Escalabilidade**: Cada camada pode escalar independentemente
-- **Manutenibilidade**: Mudanças isoladas por camada
-- **Testabilidade**: Cada camada pode ser testada isoladamente
-- **Reutilização**: Services e filters podem ser reutilizados
-- **Flexibilidade**: Fácil substituição de tecnologias por camada
 
 <img width="671" height="377" alt="image" src="https://github.com/user-attachments/assets/94431bbb-3dc1-4892-905a-aa0e25612182" />
 
