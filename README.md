@@ -35,10 +35,6 @@ npm run start <br>
 ng generate component /components/... <br>
 
 java = http://localhost:8080/ <br>
-
-Próximos passos:
-- configurar api de conexao back com front
-
 <br>
 
 # Arquitetura Monolítica
