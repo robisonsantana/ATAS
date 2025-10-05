@@ -18,44 +18,79 @@ export class CadastroDisciplinasComponent {
   descricao: string = '';
   turno: string = '';
 
-  // estados
+  //checkboxes
+  turnoManha: boolean = false;
+  turnoTarde: boolean = false;
+  turnoNoite: boolean = false;
+
+  //modelo dropdown
+  modeloDisciplina: string = '';
+  modelosDisponiveis: string[] = ['Presencial', 'Híbrido', 'Online'];
+
+  diasSemana: string[] = [];
+  diasDisponiveis: string[] = [
+    'Segunda-Feira',
+    'Terça-Feira',
+    'Quarta-Feira',
+    'Quinta-Feira',
+    'Sexta-Feira',
+    'Sábado'
+  ];
+
+  quantidadeAulas: number = 1; //1 a 4
+  aulasOpcoes: number[] = [1, 2, 3, 4];
+
+    // estados
   loading: boolean = false;
   successMessage: string = '';
   errorMessage: string = '';
 
   constructor(private router: Router) {}
 
-  onEnviar() {
-    // verificaçoes
-    if (!this.disciplina.trim()) {
-      this.errorMessage = 'Nome da disciplina é obrigatório';
-      return;
+  toggleDiaSemana(dia: string) {
+    const index = this.diasSemana.indexOf(dia);
+    if (index > -1) {
+      this.diasSemana.splice(index, 1);
+    } else {
+      this.diasSemana.push(dia);
     }
+  }
 
-    if (!this.curso.trim()) {
-      this.errorMessage = 'Curso é obrigatório';
-      return;
-    }
+  isDiaSelecionado(dia: string): boolean {
+    return this.diasSemana.includes(dia);
+  }
 
-    if (!this.objetivo.trim()) {
-      this.errorMessage = 'Objetivo é obrigatório';
-      return;
-    }
-
-    if (!this.ementa.trim()) {
-      this.errorMessage = 'Ementa é obrigatória';
-      return;
-    }
-
-    if (!this.descricao.trim()) {
-      this.errorMessage = 'Descrição é obrigatória';
-      return;
-    }
-
-    if (!this.turno) {
-      this.errorMessage = 'Selecione um turno';
-      return;
-    }
+    onEnviar() {
+  //   // verificaçoes
+  //   if (!this.disciplina.trim()) {
+  //     this.errorMessage = 'Nome da disciplina é obrigatório';
+  //     return;
+  //   }
+  //
+  //   if (!this.curso.trim()) {
+  //     this.errorMessage = 'Curso é obrigatório';
+  //     return;
+  //   }
+  //
+  //   if (!this.objetivo.trim()) {
+  //     this.errorMessage = 'Objetivo é obrigatório';
+  //     return;
+  //   }
+  //
+  //   if (!this.ementa.trim()) {
+  //     this.errorMessage = 'Ementa é obrigatória';
+  //     return;
+  //   }
+  //
+  //   if (!this.descricao.trim()) {
+  //     this.errorMessage = 'Descrição é obrigatória';
+  //     return;
+  //   }
+  //
+  //   if (!this.turno) {
+  //     this.errorMessage = 'Selecione um turno';
+  //     return;
+  //   }
 
     this.loading = true;
     this.errorMessage = '';
@@ -64,10 +99,17 @@ export class CadastroDisciplinasComponent {
     const novaDisciplina = {
       disciplina: this.disciplina.trim(),
       curso: this.curso.trim(),
+      modeloDisciplina: this.modeloDisciplina,
       objetivo: this.objetivo.trim(),
       ementa: this.ementa.trim(),
       descricao: this.descricao.trim(),
-      turno: this.turno,
+      turnos: {
+        manha: this.turnoManha,
+        tarde: this.turnoTarde,
+        noite: this.turnoNoite
+      },
+      diasSemana: this.diasSemana,
+      quantidadeAulas: this.quantidadeAulas,
       dataCriacao: new Date()
     };
 
@@ -76,7 +118,7 @@ export class CadastroDisciplinasComponent {
     setTimeout(() => {
       this.loading = false;
       this.successMessage = 'Disciplina cadastrada com sucesso!';
-      
+
       setTimeout(() => {
         this.successMessage = '';
       }, 3000);
@@ -89,7 +131,12 @@ export class CadastroDisciplinasComponent {
     this.objetivo = '';
     this.ementa = '';
     this.descricao = '';
-    this.turno = '';
+    this.turnoManha = false;
+    this.turnoTarde = false;
+    this.turnoNoite = false;
+    this.modeloDisciplina = '';
+    this.diasSemana = [];
+    this.quantidadeAulas = 1;
     this.errorMessage = '';
     this.successMessage = '';
   }

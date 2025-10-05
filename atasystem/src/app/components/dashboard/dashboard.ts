@@ -41,6 +41,14 @@ export class DashboardComponent {
     {
       title: 'Montar Banca',
       route: '/montar-banca'
+    },
+    {
+      title: 'Cadastrar Professor',
+      route: '/cadastrar-professor'
+    },
+    {
+      title: 'Administrar Dados',
+      route: '/adm-dados'
     }
   ];
 

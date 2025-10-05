@@ -1,6 +1,6 @@
 <div class="cadastro-container">
   <div class="cadastro-form-box">
-    
+
     <div class="message-container" *ngIf="errorMessage || successMessage">
       <div *ngIf="errorMessage" class="error-message">
         {{ errorMessage }}
@@ -11,102 +11,168 @@
     </div>
 
     <form class="cadastro-form" (ngSubmit)="onEnviar()" (input)="clearMessages()">
-      
-      <div class="form-row">
-        <div class="form-group half-width">
-          <label for="disciplina" class="form-label">Disciplina</label>
-          <input 
-            type="text" 
-            id="disciplina"
-            class="form-input"
-            [(ngModel)]="disciplina"
-            name="disciplina"
-            [disabled]="loading"
-            placeholder="Nome da disciplina"
-          >
-        </div>
 
-        <div class="form-group half-width">
-          <label for="ementa" class="form-label">Ementa</label>
-          <textarea 
-            id="ementa"
-            class="form-textarea small"
-            [(ngModel)]="ementa"
-            name="ementa"
-            [disabled]="loading"
-            placeholder="Resumo da ementa"
-            rows="3"
-          ></textarea>
-        </div>
-      </div>
+      <div class="two-columns">
 
-      <div class="form-row">
-        <div class="form-group half-width">
-          <label for="curso" class="form-label">Curso</label>
-          <input 
-            type="text" 
-            id="curso"
-            class="form-input"
-            [(ngModel)]="curso"
-            name="curso"
-            [disabled]="loading"
-            placeholder="Nome do curso"
-          >
-        </div>
+        <div class="left-column">
+          <div class="form-group">
+            <label for="disciplina" class="form-label">Disciplina</label>
+            <input
+              type="text"
+              id="disciplina"
+              class="form-input"
+              [(ngModel)]="disciplina"
+              name="disciplina"
+              [disabled]="loading"
+              placeholder="Nome da disciplina"
+            >
+          </div>
 
-        <div class="form-group half-width">
-          <label for="descricao" class="form-label">Descrição</label>
-          <textarea 
-            id="descricao"
-            class="form-textarea large"
-            [(ngModel)]="descricao"
-            name="descricao"
-            [disabled]="loading"
-            placeholder="Descrição detalhada da disciplina"
-            rows="5"
-          ></textarea>
-        </div>
-      </div>
-
-      <div class="form-group full-width">
-        <label for="objetivo" class="form-label">Objetivo</label>
-        <textarea 
-          id="objetivo"
-          class="form-textarea medium"
-          [(ngModel)]="objetivo"
-          name="objetivo"
-          [disabled]="loading"
-          placeholder="Objetivos da disciplina"
-          rows="4"
-        ></textarea>
-      </div>
-
-      <div class="form-group">
-        <label class="form-label">Turno</label>
-        <div class="radio-group">
-          <div class="radio-item">
-            <input 
-              type="radio" 
-              id="tarde" 
-              name="turno" 
-              value="Tarde"
-              [(ngModel)]="turno"
+          <div class="form-group">
+            <label for="curso" class="form-label">Curso</label>
+            <select
+              id="curso"
+              class="form-select"
+              [(ngModel)]="curso"
+              name="curso"
               [disabled]="loading"
             >
-            <label for="tarde" class="radio-label">Tarde</label>
+              <option value="">Selecione o curso...</option>
+              <option value="ads">Análise e Desenvolvimento de Sistemas</option>
+              <option value="eng-software">Engenharia de Software</option>
+              <option value="ciencia-comp">Ciência da Computação</option>
+              <option value="sistemas-info">Sistemas de Informação</option>
+            </select>
           </div>
-          <div class="radio-item">
-            <input 
-              type="radio" 
-              id="noite" 
-              name="turno" 
-              value="Noite"
-              [(ngModel)]="turno"
+
+          <div class="form-group">
+            <label for="modeloDisciplina" class="form-label">Modelo da Disciplina</label>
+            <select
+              id="modeloDisciplina"
+              class="form-select"
+              [(ngModel)]="modeloDisciplina"
+              name="modeloDisciplina"
               [disabled]="loading"
             >
-            <label for="noite" class="radio-label">Noite</label>
+              <option value="">Selecione a modalidade...</option>
+              <option value="Presencial">Presencial</option>
+              <option value="Híbrido">Híbrido</option>
+              <option value="Online">Online</option>
+            </select>
           </div>
+
+          <div class="form-group">
+            <label for="quantidadeAulas" class="form-label">Quantidade de aulas</label>
+            <select
+              id="quantidadeAulas"
+              class="form-select"
+              [(ngModel)]="quantidadeAulas"
+              name="quantidadeAulas"
+              [disabled]="loading"
+            >
+              <option *ngFor="let num of aulasOpcoes" [value]="num">{{ num }}</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Dias da Semana</label>
+            <div class="checkbox-list">
+              <div
+                *ngFor="let dia of diasDisponiveis"
+                class="checkbox-item"
+              >
+                <input
+                  type="checkbox"
+                  [id]="'dia-' + dia"
+                  [checked]="isDiaSelecionado(dia)"
+                  (change)="toggleDiaSemana(dia)"
+                  [disabled]="loading"
+                >
+                <label [for]="'dia-' + dia" class="checkbox-label">{{ dia }}</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Turno</label>
+            <div class="checkbox-inline-group">
+              <div class="checkbox-inline-item">
+                <input
+                  type="checkbox"
+                  id="manha"
+                  name="turnoManha"
+                  [(ngModel)]="turnoManha"
+                  [disabled]="loading"
+                >
+                <label for="manha" class="checkbox-label">Manhã</label>
+              </div>
+              <div class="checkbox-inline-item">
+                <input
+                  type="checkbox"
+                  id="tarde"
+                  name="turnoTarde"
+                  [(ngModel)]="turnoTarde"
+                  [disabled]="loading"
+                >
+                <label for="tarde" class="checkbox-label">Tarde</label>
+              </div>
+              <div class="checkbox-inline-item">
+                <input
+                  type="checkbox"
+                  id="noite"
+                  name="turnoNoite"
+                  [(ngModel)]="turnoNoite"
+                  [disabled]="loading"
+                >
+                <label for="noite" class="checkbox-label">Noite</label>
+              </div>
+            </div>
+          </div>
+
         </div>
+
+        <div class="right-column">
+          <div class="form-group">
+            <label for="ementa" class="form-label">Ementa</label>
+            <textarea
+              id="ementa"
+              class="form-textarea"
+              [(ngModel)]="ementa"
+              name="ementa"
+              [disabled]="loading"
+              placeholder="Resumo da ementa"
+              rows="8"
+            ></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="descricao" class="form-label">Descrição</label>
+            <textarea
+              id="descricao"
+              class="form-textarea"
+              [(ngModel)]="descricao"
+              name="descricao"
+              [disabled]="loading"
+              placeholder="Descrição detalhada da disciplina"
+              rows="8"
+            ></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="objetivo" class="form-label">Objetivo</label>
+            <textarea
+              id="objetivo"
+              class="form-textarea"
+              [(ngModel)]="objetivo"
+              name="objetivo"
+              [disabled]="loading"
+              placeholder="Objetivos da disciplina"
+              rows="8"
+            ></textarea>
+          </div>
+
+        </div>
+
       </div>
 
       <div class="button-group">
