@@ -17,6 +17,7 @@ export class CadastroDisciplinasComponent {
   ementa: string = '';
   descricao: string = '';
   turno: string = '';
+   modalidade: string = '';
 
   //checkboxes
   turnoManha: boolean = false;

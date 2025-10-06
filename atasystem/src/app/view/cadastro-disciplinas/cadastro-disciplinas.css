@@ -173,6 +173,13 @@
   margin-top: 10px;
 }
 
+.radio-group {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  color: #333;
+}
+
 .submit-btn,
 .clear-btn {
   border: none;

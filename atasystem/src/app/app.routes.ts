@@ -7,13 +7,14 @@ import { CadastroDisciplinasComponent } from './view/cadastro-disciplinas/cadast
 import { EditarAtaComponent } from "./view/editar-ata/editar-ata";
 import { MontarBancaComponent } from './view/montar-banca/montar-banca';
 import { LoginComponent } from './view/login/login';
+import { AvaliacaoCandidatos } from './view/avaliacao-candidatos/avaliacao-candidatos';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'dashboard', component: DashboardComponent },
-  { path: 'avaliacao-candidatos', component: DashboardComponent },
+  { path: 'avaliacao-candidatos', component: AvaliacaoCandidatos },
   { path: 'editar-ata', component: EditarAtaComponent }, 
   { path: 'solicitar-edital', component: SolicitarEditalComponent }, 
   { path: 'cadastro-disciplinas', component: CadastroDisciplinasComponent }, 
