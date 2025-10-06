@@ -1,0 +1,30 @@
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable, catchError, throwError } from 'rxjs';
+
+@Injectable({ providedIn: 'root' })
+export class DisciplinaService {
+  private apiUrl = 'http://localhost:8080/cadastro-disciplina';
+
+  constructor(private http: HttpClient) {}
+
+  testarConexao(): Observable<any> {
+    return this.http.get(`${this.apiUrl}/health`, {
+      responseType: 'text'
+    });
+  }
+
+  salvarDisciplina(disciplina: any): Observable<any> {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json'
+    });
+
+    return this.http.post<any>(this.apiUrl, disciplina, { headers })
+      .pipe(
+        catchError(error => {
+          console.error('Erro detalhado:', error);
+          return throwError(() => new Error('Erro ao salvar disciplina'));
+        })
+      );
+  }
+}

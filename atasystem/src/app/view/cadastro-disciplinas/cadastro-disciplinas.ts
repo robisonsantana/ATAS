@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { DisciplinaService } from '../../services/disciplina.service';
 
 @Component({
   selector: 'app-cadastro-disciplinas',
@@ -45,7 +46,8 @@ export class CadastroDisciplinasComponent {
   successMessage: string = '';
   errorMessage: string = '';
 
-  constructor(private router: Router) {}
+
+  constructor(private disciplinaService: DisciplinaService) {}
 
   toggleDiaSemana(dia: string) {
     const index = this.diasSemana.indexOf(dia);
@@ -60,70 +62,55 @@ export class CadastroDisciplinasComponent {
     return this.diasSemana.includes(dia);
   }
 
-    onEnviar() {
-  //   // verificaçoes
-  //   if (!this.disciplina.trim()) {
-  //     this.errorMessage = 'Nome da disciplina é obrigatório';
-  //     return;
-  //   }
-  //
-  //   if (!this.curso.trim()) {
-  //     this.errorMessage = 'Curso é obrigatório';
-  //     return;
-  //   }
-  //
-  //   if (!this.objetivo.trim()) {
-  //     this.errorMessage = 'Objetivo é obrigatório';
-  //     return;
-  //   }
-  //
-  //   if (!this.ementa.trim()) {
-  //     this.errorMessage = 'Ementa é obrigatória';
-  //     return;
-  //   }
-  //
-  //   if (!this.descricao.trim()) {
-  //     this.errorMessage = 'Descrição é obrigatória';
-  //     return;
-  //   }
-  //
-  //   if (!this.turno) {
-  //     this.errorMessage = 'Selecione um turno';
-  //     return;
-  //   }
+  ngOnInit() {
+    this.testarConexao();
+  }
 
-    this.loading = true;
-    this.errorMessage = '';
-
-    // criar objeto da disciplina (provavelmente vai ser substituido quando conectar com o back)
-    const novaDisciplina = {
-      disciplina: this.disciplina.trim(),
-      curso: this.curso.trim(),
-      modeloDisciplina: this.modeloDisciplina,
-      objetivo: this.objetivo.trim(),
-      ementa: this.ementa.trim(),
-      descricao: this.descricao.trim(),
-      turnos: {
-        manha: this.turnoManha,
-        tarde: this.turnoTarde,
-        noite: this.turnoNoite
+  testarConexao() {
+    this.disciplinaService.testarConexao().subscribe({
+      next: (response) => {
+        console.log('✅ Conexão com backend:', response);
       },
-      diasSemana: this.diasSemana,
+      error: (error) => {
+        console.error('❌ Erro na conexão:', error);
+        this.errorMessage = 'Backend não está respondendo. Verifique se o servidor Spring Boot está rodando na porta 8080.';
+      }
+    });
+  }
+
+  onEnviar() {
+    const disciplinaData = {
+      disciplina: this.disciplina,
+      curso: this.curso,
+      modeloDisciplina: this.modeloDisciplina,
       quantidadeAulas: this.quantidadeAulas,
-      dataCriacao: new Date()
+      ementa: this.ementa,
+      descricao: this.descricao,
+      objetivo: this.objetivo,
+      turnoManha: this.turnoManha,
+      turnoTarde: this.turnoTarde,
+      turnoNoite: this.turnoNoite,
+      diasSemana: this.diasSemana,
+      dataCriacao: new Date().toISOString().split('T')[0]
     };
 
-    console.log('Nova disciplina:', novaDisciplina);
+    console.log('Dados sendo enviados:', disciplinaData);
 
-    setTimeout(() => {
-      this.loading = false;
-      this.successMessage = 'Disciplina cadastrada com sucesso!';
-
-      setTimeout(() => {
-        this.successMessage = '';
-      }, 3000);
-    }, 1500);
+    this.disciplinaService.salvarDisciplina(disciplinaData).subscribe({
+      next: (response) => {
+        console.log('Sucesso:', response);
+        this.successMessage = 'Disciplina cadastrada com sucesso!';
+        this.loading = false;
+      },
+      error: (error) => {
+        console.error('Erro completo:', error);
+        this.errorMessage = 'Erro ao cadastrar disciplina';
+        this.loading = false;
+      }
+    });
   }
+
+
 
   onLimpar() {
     this.disciplina = '';
