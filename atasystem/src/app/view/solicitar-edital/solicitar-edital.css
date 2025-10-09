@@ -50,6 +50,25 @@
   position: relative;
 }
 
+.form-time {
+  display: flex;
+  gap: 20px;
+  margin: 20px 0;
+}
+
+.form-time .form-group {
+  flex: 1;              /* ocupa todo o espaço disponível */
+}
+
+.form-time .form-input {
+  width: 88%;          /* input acompanha o tamanho do form-group */
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  background-color: white;
+}
+
 .form-label {
   font-size: 14px;
   color: #333;

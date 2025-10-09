@@ -129,6 +129,45 @@
             </div>
           </div>
 
+          <div class="form-group">
+            <label class="form-label">Modalidade</label>
+              <div class="radio-group">
+                <div class="radio-item">
+                  <input 
+                    type="radio" 
+                    id="presencial" 
+                    name="modalidade" 
+                    value="Presencial"
+                    [(ngModel)]="modalidade"
+                    [disabled]="loading"
+                  >
+                  <label for="presencial" class="radio-label">Presencial</label>
+                </div>
+              <div class="radio-item">
+                <input 
+                  type="radio" 
+                  id="hibrido" 
+                  name="modalidade" 
+                  value="Híbrido"
+                  [(ngModel)]="modalidade"
+                  [disabled]="loading"
+                >
+                <label for="hibrido" class="radio-label">Híbrido</label>
+              </div>
+              <div class="radio-item">
+                <input 
+                  type="radio" 
+                  id="online" 
+                  name="modalidade" 
+                  value="Online"
+                  [(ngModel)]="modalidade"
+                  [disabled]="loading"
+                >
+              <label for="online" class="radio-label">Online</label>
+            </div>
+          </div>
+        </div>
+
         </div>
 
         <div class="right-column">
