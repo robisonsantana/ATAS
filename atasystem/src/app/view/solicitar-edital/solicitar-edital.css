@@ -12,7 +12,7 @@
   border-radius: 12px;
   padding: 30px;
   width: 100%;
-  max-width: 500px;
+  max-width: 630px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
@@ -200,4 +200,10 @@
   .edital-form-box {
     margin: 10px;
   }
+}
+
+.checkbox-list {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
 }
