@@ -54,15 +54,6 @@ export class SolicitarEditalComponent {
     { id: 'noite', nome: 'Noite' }
   ];
 
-  diasSemana: string[] = [
-    'Segunda-feira',
-    'Terça-feira', 
-    'Quarta-feira',
-    'Quinta-feira',
-    'Sexta-feira',
-    'Sábado'
-  ];
-
   constructor(private router: Router) {}
 
   onSubmit() {
@@ -136,5 +127,28 @@ export class SolicitarEditalComponent {
   clearMessages() {
     this.errorMessage = '';
     this.successMessage = '';
+  }
+
+  diasSemana: string[] = [];
+  diasDisponiveis: string[] = [
+    'Segunda-Feira',
+    'Terça-Feira',
+    'Quarta-Feira',
+    'Quinta-Feira',
+    'Sexta-Feira',
+    'Sábado'
+  ];
+
+  toggleDiaSemana(dia: string) {
+    const index = this.diasSemana.indexOf(dia);
+    if (index > -1) {
+      this.diasSemana.splice(index, 1);
+    } else {
+      this.diasSemana.push(dia);
+    }
+  }
+
+  isDiaSelecionado(dia: string): boolean {
+    return this.diasSemana.includes(dia);
   }
 }
