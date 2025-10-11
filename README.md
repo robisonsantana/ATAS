@@ -51,61 +51,6 @@ java = http://localhost:8080/ <br>
     G --> H[Service Layer]
     H --> I[Repository/Database]
 ```
-
-### 1. **Angular Component**
-- **Responsabilidade**: Interface do usuário e interações
-- **Função**: Captura eventos do usuário e exibe dados
-- **Tecnologia**: Angular TypeScript
-- **Exemplo**: Formulários, listas, botões
-
-### 2. **Angular Service**
-- **Responsabilidade**: Lógica de comunicação HTTP
-- **Função**: Abstrai chamadas para API e gerencia estado
-- **Tecnologia**: Angular HttpClient
-- **Exemplo**: `ProductService`, `AuthService`
-
-### 3. **HTTP Interceptor**
-- **Responsabilidade**: Middleware de requisições HTTP
-- **Função**: Adiciona headers, tokens, logs automaticamente
-- **Tecnologia**: Angular HttpInterceptor
-- **Exemplo**: Autenticação JWT, loading, tratamento de erros
-
-### 4. **HTTP Request**
-- **Responsabilidade**: Transporte de dados
-- **Função**: Protocolo de comunicação via HTTP/HTTPS
-- **Tecnologia**: HTTP Protocol + JSON
-- **Exemplo**: GET, POST, PUT, DELETE requests
-
-### 5. **Load Balancer/Proxy**
-- **Responsabilidade**: Distribuição e roteamento de tráfego
-- **Função**: Balanceia carga e roteia requisições
-- **Tecnologia**: Nginx, HAProxy, AWS ALB
-- **Exemplo**: Distribuir requisições entre múltiplas instâncias
-
-### 6. **Spring Boot Filter**
-- **Responsabilidade**: Middleware de entrada do backend
-- **Função**: Processa requisições antes dos controllers
-- **Tecnologia**: Java Servlet Filters
-- **Exemplo**: CORS, autenticação, logging, validação
-
-### 7. **Spring Controller**
-- **Responsabilidade**: Endpoints da API REST
-- **Função**: Recebe requisições HTTP e retorna respostas
-- **Tecnologia**: Spring Web MVC
-- **Exemplo**: `@RestController` com métodos HTTP
-
-### 8. **Service Layer**
-- **Responsabilidade**: Lógica de negócio
-- **Função**: Processa regras de negócio e coordena operações
-- **Tecnologia**: Spring Services (@Service)
-- **Exemplo**: Validações, cálculos, orquestração
-
-### 9. **Repository/Database**
-- **Responsabilidade**: Persistência de dados
-- **Função**: Acesso e manipulação de dados
-- **Tecnologia**: Spring Data JPA + Database
-- **Exemplo**: Consultas SQL, operações CRUD
-
 ## Fluxo de Dados
 
 ### Requisição (Frontend → Backend)

@@ -13,12 +13,7 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
-export class App implements OnInit {
+export class App  {
   protected readonly title = signal('atasystem');
 
-  private testService = inject(TestService);
-
-  ngOnInit(): void {
-    this.testService.testBackend();
-  }
 }
