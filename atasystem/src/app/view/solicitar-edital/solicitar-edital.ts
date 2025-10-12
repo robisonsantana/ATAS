@@ -26,7 +26,8 @@ export class SolicitarEditalComponent {
   // dados do formulário
   disciplinaSelecionada: string = '';
   turnoSelecionado: string = '';
-  horario: string = '';
+  horaInicio: string = '';
+  horaFim: string = '';
   diaSemana: string = '';
 
   // radio buttons
@@ -83,7 +84,7 @@ export class SolicitarEditalComponent {
       return;
     }
 
-    if (!this.horario) {
+    if (!this.horaInicio) {
       this.errorMessage = 'Informe o horário';
       return;
     }
@@ -109,7 +110,7 @@ export class SolicitarEditalComponent {
     const solicitacao = {
       disciplina: this.disciplinaSelecionada,
       turno: this.turnoSelecionado,
-      horario: this.horario,
+      horario: this.horaInicio,
       diaSemana: this.diaSemana,
       modalidade: this.modalidade,
       tipo: this.tipo,
@@ -133,7 +134,7 @@ export class SolicitarEditalComponent {
   private clearForm() {
     this.disciplinaSelecionada = '';
     this.turnoSelecionado = '';
-    this.horario = '';
+    this.horaInicio = '';
     this.diaSemana = '';
     this.modalidade = '';
     this.tipo = '';
