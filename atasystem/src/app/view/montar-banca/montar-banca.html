@@ -1,6 +1,22 @@
 <div class="montar-banca-container">
+
+  <!-- Seleção de Edital -->
+  <div class="edital-selector">
+    <label class="edital-label">Selecionar Edital</label>
+    <select
+      class="edital-dropdown"
+      [(ngModel)]="editalSelecionado"
+      name="edital"
+    >
+      <option value="" disabled selected>Escolha um edital</option>
+      <option *ngFor="let edital of editaisAbertos" [value]="edital.id">
+        {{ edital.numero }} - {{ edital.ano }}/{{ edital.semestre }}
+      </option>
+    </select>
+  </div>
+
   <div class="listas-container">
-    
+
     <div class="lista">
       <h3>Professores Disponíveis</h3>
       <select multiple [(ngModel)]="selectedDisponiveis" class="select-list">
@@ -27,8 +43,8 @@
     </div>
   </div>
 
-<div class="acoes">
+  <div class="acoes">
     <button class="cadastrar" (click)="cadastrarBanca()">Cadastrar Banca</button>
-    <button class="limpar" (click)="limpar()">Limpar</button> <!-- ✅ Botão Limpar -->
+    <button class="limpar" (click)="limpar()">Limpar</button>
   </div>
 </div>

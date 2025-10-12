@@ -1,38 +1,151 @@
 <div class="ata-container">
-  
-  <div class="sidebar">
-    <!-- <div class="sidebar-header">
-      <h3>FILTRAR EDITAIS</h3>
-      <div class="filter-icon">⚙️</div>
-    </div> -->
-    
-    <div class="editais-list">
-      <div 
-        *ngFor="let edital of editais"
-        class="edital-item"
-        [class.active]="edital.ativo"
-        (click)="selecionarEdital(edital)"
-      >
-        <span class="edital-numero">{{ edital.numero }}</span>
-        <div class="edital-icon">📄</div>
+
+  <!-- Botão Dropdown no topo da sidebar -->
+  <div class="sidebar-with-dropdown">
+    <div class="filter-button-container">
+      <button class="filter-button" (click)="toggleDropdown()">
+        <span class="filter-icon-btn">⚙️</span>
+        <span class="filter-text">FILTRAR EDITAIS</span>
+        <span class="dropdown-arrow" [class.open]="dropdownOpen">▼</span>
+      </button>
+
+      <div class="dropdown-overlay" *ngIf="dropdownOpen" (click)="toggleDropdown()"></div>
+
+      <div class="filter-dropdown" *ngIf="dropdownOpen">
+        <div class="dropdown-header">
+          <h4>Filtros de Busca</h4>
+        </div>
+
+        <!-- SEÇÃO DE FILTROS -->
+        <div class="filters-section">
+
+          <!-- Filtro por Unidade -->
+          <div class="filter-group">
+            <label class="filter-label">Unidade</label>
+            <select class="filter-select" [(ngModel)]="filtros.unidade" name="unidade">
+              <option value="">Todas as unidades</option>
+              <option *ngFor="let unidade of unidadesDisponiveis" [value]="unidade">
+                {{ unidade }}
+              </option>
+            </select>
+          </div>
+
+          <!-- Filtro por Ano -->
+          <div class="filter-group">
+            <label class="filter-label">Ano</label>
+            <select class="filter-select" [(ngModel)]="filtros.ano" name="ano">
+              <option value="">Todos os anos</option>
+              <option *ngFor="let ano of anosDisponiveis" [value]="ano">
+                {{ ano }}
+              </option>
+            </select>
+          </div>
+
+          <!-- Filtro por Semestre -->
+          <div class="filter-group">
+            <label class="filter-label">Semestre</label>
+            <select class="filter-select" [(ngModel)]="filtros.semestre" name="semestre">
+              <option value="">Ambos os semestres</option>
+              <option value="1">1º Semestre</option>
+              <option value="2">2º Semestre</option>
+            </select>
+          </div>
+
+          <!-- Filtro por Tipo -->
+          <div class="filter-group">
+            <label class="filter-label">Tipo de Edital</label>
+            <select class="filter-select" [(ngModel)]="filtros.tipo" name="tipo">
+              <option value="">Todos os tipos</option>
+              <option *ngFor="let tipo of tiposDisponiveis" [value]="tipo">
+                {{ tipo }}
+              </option>
+            </select>
+          </div>
+
+          <!-- Botão Limpar Filtros -->
+          <div class="filter-actions">
+            <button class="btn-clear-filters" (click)="limparFiltros()">
+              <span>🔄</span>
+              <span>Limpar Filtros</span>
+            </button>
+          </div>
+
+        </div>
+
+        <!-- LISTA DE EDITAIS FILTRADOS -->
+        <div class="dropdown-results-header">
+          <h4>Resultados ({{ editaisFiltrados.length }})</h4>
+        </div>
+
+        <div class="editais-list-dropdown">
+          <div *ngIf="editaisFiltrados.length === 0" class="no-results">
+            Nenhum edital encontrado com os filtros selecionados
+          </div>
+
+          <div
+            *ngFor="let edital of editaisFiltrados"
+            class="edital-item-dropdown"
+            [class.active]="edital.ativo"
+            (click)="selecionarEdital(edital)"
+          >
+            <div class="edital-info">
+              <span class="edital-numero">{{ edital.numero }}</span>
+              <div class="edital-meta">
+                <span class="meta-item">📍 {{ edital.unidade }}</span>
+                <span class="meta-item">📅 {{ edital.ano }}/{{ edital.semestre }}</span>
+                <span class="meta-item">📋 {{ edital.tipo }}</span>
+              </div>
+            </div>
+            <div class="edital-icon">📄</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sidebar sem header -->
+    <div class="sidebar">
+      <div class="editais-list">
+        <div
+          *ngFor="let edital of editaisFiltrados"
+          class="edital-item"
+          [class.active]="edital.ativo"
+          (click)="selecionarEdital(edital)"
+        >
+          <span class="edital-numero">{{ edital.numero }}</span>
+          <div class="edital-icon">📄</div>
+        </div>
+      </div>
+
+      <!-- Botão Editais Fechados -->
+      <div class="sidebar-footer">
+        <button
+          class="btn-editais-fechados"
+          [class.active]="mostrarEditaisFechados"
+          (click)="toggleEditaisFechados()"
+        >
+          <span class="closed-icon">🔒</span>
+          <span>Editais Fechados</span>
+        </button>
       </div>
     </div>
   </div>
 
   <div class="main-content">
-    
+
+    <!-- Mensagem de Sucesso -->
     <div *ngIf="successMessage" class="success-message">
       {{ successMessage }}
     </div>
 
+    <!-- Conteúdo da ATA -->
     <div *ngIf="editalSelecionado" class="ata-content">
-      
+
       <div *ngIf="!modoEdicao" class="view-mode">
         <div class="ata-text">{{ editalSelecionado.conteudo }}</div>
       </div>
 
       <div *ngIf="modoEdicao" class="edit-mode">
-        <textarea 
+        <textarea
           class="ata-textarea"
           [(ngModel)]="conteudoEditado"
           name="conteudo"
@@ -42,8 +155,27 @@
       </div>
 
       <div class="action-buttons">
-        
+
+        <!-- Botões quando o edital NÃO está em modo edição -->
         <div *ngIf="!modoEdicao" class="view-buttons">
+          <!-- Mostrar botão FECHAR apenas se o edital NÃO estiver fechado -->
+          <button
+            *ngIf="!editalSelecionado.fechado"
+            class="btn-close"
+            (click)="fecharEdital()"
+          >
+            Fechar Edital
+          </button>
+
+          <!-- Mostrar botão REABRIR apenas se o edital ESTIVER fechado -->
+          <button
+            *ngIf="editalSelecionado.fechado"
+            class="btn-reopen"
+            (click)="reabrirEdital()"
+          >
+            Reabrir Edital
+          </button>
+
           <button class="btn-primary" (click)="iniciarEdicao()">
             Editar
           </button>
@@ -53,17 +185,18 @@
           </button>
         </div>
 
+        <!-- Botões quando o edital ESTÁ em modo edição -->
         <div *ngIf="modoEdicao" class="edit-buttons">
-          <button 
-            class="btn-primary" 
+          <button
+            class="btn-primary"
             (click)="salvarEdicao()"
             [disabled]="loading || !conteudoEditado.trim()"
           >
             <span *ngIf="!loading">Salvar</span>
             <span *ngIf="loading">Salvando...</span>
           </button>
-          <button 
-            class="btn-secondary" 
+          <button
+            class="btn-secondary"
             (click)="cancelarEdicao()"
             [disabled]="loading"
           >

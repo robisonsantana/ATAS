@@ -4,6 +4,13 @@ import { FormsModule } from '@angular/forms';
 import { Router, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
 
+interface Edital {
+  id: string;
+  numero: string;
+  ano: number;
+  semestre: number;
+}
+
 @Component({
   selector: 'app-montar-banca',
   standalone: true,
@@ -13,6 +20,15 @@ import { filter } from 'rxjs/operators';
 })
 
 export class MontarBancaComponent {
+  editaisAbertos: Edital[] = [
+    { id: '1', numero: 'edital 000001', ano: 2024, semestre: 1 },
+    { id: '3', numero: 'edital 000003', ano: 2024, semestre: 2 },
+    { id: '5', numero: 'edital 000005', ano: 2024, semestre: 2 },
+    { id: '7', numero: 'edital 000007', ano: 2024, semestre: 1 }
+  ];
+
+  editalSelecionado: string = '';
+
   professoresDisponiveis: string[] = [
     'Prof. João - Doutor',
     'Prof. Maria - Mestre',
@@ -58,8 +74,16 @@ export class MontarBancaComponent {
   }
 
   cadastrarBanca() {
-    
-    console.log('Banca cadastrada:', this.professoresComissao);
+    if (!this.editalSelecionado) {
+      alert('Por favor, selecione um edital antes de cadastrar a banca.');
+      return;
+    }
+    if (this.professoresComissao.length === 0) {
+      alert('Por favor, adicione pelo menos um professor à comissão.');
+      return;
+    }
+    console.log('Banca cadastrada para o edital:', this.editalSelecionado);
+    console.log('Professores da comissão:', this.professoresComissao);
   }
 
   limpar() {
@@ -70,5 +94,6 @@ export class MontarBancaComponent {
     this.professoresComissao = [];
     this.selectedDisponiveis = [];
     this.selectedComissao = [];
+    this.editalSelecionado = '';
   }
 }

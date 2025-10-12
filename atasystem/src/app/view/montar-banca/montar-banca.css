@@ -6,6 +6,52 @@
   margin-top: 20px;
 }
 
+/* ===== SELETOR DE EDITAL ===== */
+.edital-selector {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.edital-label {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.edital-dropdown {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+  color: #495057;
+  background-color: white;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-weight: 500;
+}
+
+.edital-dropdown:hover {
+  border-color: #6c757d;
+}
+
+.edital-dropdown:focus {
+  outline: none;
+  border-color: #6c757d;
+  box-shadow: 0 0 0 3px rgba(108, 117, 125, 0.15);
+}
+
+.edital-dropdown option {
+  padding: 10px;
+}
+
+/* ===== LISTAS ===== */
 .listas-container {
   display: flex;
   align-items: center;
@@ -19,6 +65,13 @@
   align-items: center;
 }
 
+.lista h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 10px;
+}
+
 .select-list {
   width: 200px;
   height: 150px;
@@ -28,7 +81,16 @@
   background-color: white;
 }
 
+.select-list option {
+  padding: 5px;
+  cursor: pointer;
+}
 
+.select-list option:hover {
+  background-color: #f8f9fa;
+}
+
+/* ===== BOTÕES DE MOVIMENTAÇÃO ===== */
 .botoes {
   display: flex;
   flex-direction: column;
@@ -58,6 +120,7 @@
   cursor: not-allowed;
 }
 
+/* ===== AÇÕES ===== */
 .acoes {
   display: flex;
   gap: 15px;
@@ -92,14 +155,24 @@
   transform: none;
 }
 
+/* ===== RESPONSIVIDADE ===== */
 @media (max-width: 768px) {
+  .edital-selector {
+    max-width: 90%;
+  }
+
   .listas-container {
     flex-direction: column;
+  }
+
+  .select-list {
+    width: 250px;
   }
 
   .acoes {
     flex-direction: column;
     width: 100%;
+    max-width: 300px;
   }
 
   .cadastrar,
