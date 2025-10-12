@@ -1,6 +1,6 @@
 <div class="edital-container">
   <div class="edital-form-box">
-    
+
     <div class="message-container" *ngIf="errorMessage || successMessage">
       <div *ngIf="errorMessage" class="error-message">
         {{ errorMessage }}
@@ -11,10 +11,10 @@
     </div>
 
     <form class="edital-form" (ngSubmit)="onSubmit()" (input)="clearMessages()">
-      
+
       <div class="form-group">
         <label for="disciplina" class="form-label">Selecione o nome da disciplina</label>
-        <select 
+        <select
           id="disciplina"
           class="form-select"
           [(ngModel)]="disciplinaSelecionada"
@@ -31,7 +31,7 @@
 
       <div class="form-group">
         <label for="turno" class="form-label">Turno</label>
-        <select 
+        <select
           id="turno"
           class="form-select"
           [(ngModel)]="turnoSelecionado"
@@ -51,28 +51,28 @@
         <div class="form-group">
           <label for="horario" class="form-label">Horário Inicial</label>
           <input
-            type="time" 
+            type="time"
             id="horario"
             class="form-input"
-            [(ngModel)]="horario"
+            [(ngModel)]="horaInicio"
             name="horario"
             [disabled]="loading"
           >
         </div>
         <div class="form-group">
           <label for="horario" class="form-label">Horário Final</label>
-          <input 
-            type="time" 
+          <input
+            type="time"
             id="horario"
             class="form-input"
-            [(ngModel)]="horario"
+            [(ngModel)]="horaFim"
             name="horario"
             [disabled]="loading"
           >
         </div>
       </div>
 
-      
+
 
       <div class="form-group">
         <label class="form-label">Dias da Semana</label>
@@ -99,10 +99,10 @@
         <label class="form-label">Tipo</label>
         <div class="radio-group">
           <div class="radio-item">
-            <input 
-              type="radio" 
-              id="determinado" 
-              name="tipo" 
+            <input
+              type="radio"
+              id="determinado"
+              name="tipo"
               value="Determinado"
               [(ngModel)]="tipo"
               [disabled]="loading"
@@ -110,10 +110,10 @@
             <label for="determinado" class="radio-label">Determinado</label>
           </div>
           <div class="radio-item">
-            <input 
-              type="radio" 
-              id="indeterminado" 
-              name="tipo" 
+            <input
+              type="radio"
+              id="indeterminado"
+              name="tipo"
               value="Indeterminado"
               [(ngModel)]="tipo"
               [disabled]="loading"
