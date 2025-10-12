@@ -35,7 +35,7 @@ export class DashboardComponent {
       route: '/cadastro-disciplinas'
     },
     {
-      title: 'Analisar Rescursos',
+      title: 'Analisar Recursos',
       route: '/analisar-recursos'
     },
     {
