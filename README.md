@@ -12,7 +12,7 @@ Criar instancia MySQL com senha 1234 <br>
 
 Telas no figma: https://www.figma.com/design/DmX5rYPacwfhIaz0NVHhCi/Untitled?node-id=0-1&m=dev&t=bxBhNMdngWjRTYqY-1 <br>
 Ferramenta para o Diagrama: https://online.visual-paradigm.com <br>
-Diagrama de Classes: https://online.visual-paradigm.com/w/rqctgcni/diagrams/#G1QbrlJJUylnZVoqgqNSV2FAqAnZcvQ7vU <br>
+Diagrama de Classes: https://online.visual-paradigm.com/share.jsp?id=343237343935312d31 <br>
 
 comandos instalação angular: <br> 
 sudo apt install npm -y <br>
