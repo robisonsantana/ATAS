@@ -76,20 +76,20 @@
 
       <div class="form-group">
         <label class="form-label">Dias da Semana</label>
-          <div class="checkbox-list">
-            <div
-              *ngFor="let dia of diasDisponiveis"
-              class="checkbox-item"
-            >
+        <div class="checkbox-list">
+          <div
+            *ngFor="let dia of diasDisponiveis"
+            class="checkbox-item"
+          >
             <input
               type="checkbox"
               [id]="'dia-' + dia"
               [checked]="isDiaSelecionado(dia)"
               (change)="toggleDiaSemana(dia)"
               [disabled]="loading"
-           >
-           <label [for]="'dia-' + dia" class="checkbox-label">{{ dia }}</label>
-           </div>
+            >
+            <label [for]="'dia-' + dia" class="checkbox-label">{{ dia }}</label>
+          </div>
         </div>
       </div>
 

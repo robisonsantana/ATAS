@@ -14,22 +14,19 @@
 
       <div class="two-columns">
 
-        <div class="form-group">
-          <label for="disciplina" class="form-label">Selecione o nome da disciplina</label>
-          <select
-            id="disciplina"
-            class="form-select"
-            [(ngModel)]="disciplinaSelecionada"
-            name="disciplina"
-            [disabled]="loading"
-          >
-            <option value="">Selecionar</option>
-            <option *ngFor="let disc of disciplinas" [value]="disc.disciplina">
-              {{ disc.disciplina }}
-            </option>
-          </select>
-          <div class="select-arrow"></div>
-        </div>
+        <div class="left-column">
+          <div class="form-group">
+            <label for="disciplina" class="form-label">Disciplina</label>
+            <input
+              type="text"
+              id="disciplina"
+              class="form-input"
+              [(ngModel)]="disciplina"
+              name="disciplina"
+              [disabled]="loading"
+              placeholder="Nome da disciplina"
+            >
+          </div>
 
           <div class="form-group">
             <label for="curso" class="form-label">Curso</label>
@@ -136,18 +133,18 @@
 
           <div class="form-group">
             <label class="form-label">Modalidade</label>
-              <div class="radio-group">
-                <div class="radio-item">
-                  <input
-                    type="radio"
-                    id="presencial"
-                    name="modalidade"
-                    value="Presencial"
-                    [(ngModel)]="modalidade"
-                    [disabled]="loading"
-                  >
-                  <label for="presencial" class="radio-label">Presencial</label>
-                </div>
+            <div class="radio-group">
+              <div class="radio-item">
+                <input
+                  type="radio"
+                  id="presencial"
+                  name="modalidade"
+                  value="Presencial"
+                  [(ngModel)]="modalidade"
+                  [disabled]="loading"
+                >
+                <label for="presencial" class="radio-label">Presencial</label>
+              </div>
               <div class="radio-item">
                 <input
                   type="radio"
@@ -168,10 +165,10 @@
                   [(ngModel)]="modalidade"
                   [disabled]="loading"
                 >
-              <label for="online" class="radio-label">Online</label>
+                <label for="online" class="radio-label">Online</label>
+              </div>
             </div>
           </div>
-        </div>
 
         </div>
 

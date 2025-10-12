@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
-import {DisciplinaService} from '../../services/disciplina.service';
 
 interface Disciplina {
   id: number;
@@ -21,7 +20,6 @@ interface Turno {
   templateUrl: './solicitar-edital.html',
   styleUrls: ['./solicitar-edital.css']
 })
-
 export class SolicitarEditalComponent {
   // dados do formulário
   disciplinaSelecionada: string = '';
@@ -39,7 +37,17 @@ export class SolicitarEditalComponent {
   successMessage: string = '';
   errorMessage: string = '';
 
-  disciplinas: Disciplina[] = [];
+  // opçoes de disciplina (depois alterar pra apenas as disciplinas cadastradas)
+  disciplinas: Disciplina[] = [
+    { id: 1, nome: 'Matemática' },
+    { id: 2, nome: 'Português' },
+    { id: 3, nome: 'História' },
+    { id: 4, nome: 'Geografia' },
+    { id: 5, nome: 'Ciências' },
+    { id: 6, nome: 'Inglês' },
+    { id: 7, nome: 'Educação Física' },
+    { id: 8, nome: 'Artes' }
+  ];
 
   turnos: Turno[] = [
     { id: 'manha', nome: 'Manhã' },
@@ -47,30 +55,7 @@ export class SolicitarEditalComponent {
     { id: 'noite', nome: 'Noite' }
   ];
 
-  constructor(
-    private router: Router,
-    private disciplinaService: DisciplinaService
-  ) {}
-
-  ngOnInit() {
-    this.carregarDisciplinas();
-  }
-
-  carregarDisciplinas() {
-    this.loading = true;
-    this.disciplinaService.listarDisciplinas().subscribe({
-      next: (disciplinas) => {
-        this.disciplinas = disciplinas;
-        this.loading = false;
-        console.log('Disciplinas carregadas:', disciplinas);
-      },
-      error: (error) => {
-        console.error('Erro ao carregar disciplinas:', error);
-        this.errorMessage = 'Erro ao carregar disciplinas do servidor';
-        this.loading = false;
-      }
-    });
-  }
+  constructor(private router: Router) {}
 
   onSubmit() {
     // verificaçoes
