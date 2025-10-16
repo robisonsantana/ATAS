@@ -24,7 +24,8 @@ export class HeaderComponent implements OnInit {
     '/cadastro-disciplinas': 'Cadastro de Disciplinas',
     '/analisar-recursos': 'Analisar Recursos',
     '/montar-banca': 'Montar Banca',
-    '/register': 'Cadastrar Usuário'
+    '/register': 'Cadastrar Usuário',
+    '/avaliacao-banca': 'Avaliação da Banca'
   };
 
   constructor(private router: Router) {}

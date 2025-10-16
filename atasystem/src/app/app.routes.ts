@@ -8,6 +8,7 @@ import { EditarAtaComponent } from "./view/editar-ata/editar-ata";
 import { MontarBancaComponent } from './view/montar-banca/montar-banca';
 import { LoginComponent } from './view/login/login';
 import { AvaliacaoCandidatos } from './view/avaliacao-candidatos/avaliacao-candidatos';
+import { AvaliacaoBanca } from './view/avaliacao-banca/avaliacao-banca';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -20,5 +21,6 @@ export const routes: Routes = [
   { path: 'cadastro-disciplinas', component: CadastroDisciplinasComponent }, 
   { path: 'analisar-recursos', component: DashboardComponent }, 
   { path: 'montar-banca', component: MontarBancaComponent }, 
+  { path: 'avaliacao-banca', component: AvaliacaoBanca  },
   { path: '**', redirectTo: '/login' } // rota coringa para paginas nao encontradas
 ];
