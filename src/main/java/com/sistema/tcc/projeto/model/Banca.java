@@ -17,6 +17,6 @@ public class Banca {
     // banca é composta de avaliação e de um set de professores
     // salvar primeiro em professores
 
-    private Set<Professor> professores;
+//    private Set<Professor> professores;
     public String avaliacao;
 }

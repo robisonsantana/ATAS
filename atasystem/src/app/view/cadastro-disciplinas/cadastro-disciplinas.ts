@@ -42,11 +42,10 @@ export class CadastroDisciplinasComponent {
   quantidadeAulas: number = 1; //1 a 4
   aulasOpcoes: number[] = [1, 2, 3, 4];
 
-    // estados
+  // estados
   loading: boolean = false;
   successMessage: string = '';
   errorMessage: string = '';
-
 
   constructor(private disciplinaService: DisciplinaService) {}
 
@@ -61,22 +60,6 @@ export class CadastroDisciplinasComponent {
 
   isDiaSelecionado(dia: string): boolean {
     return this.diasSemana.includes(dia);
-  }
-
-  ngOnInit() {
-    this.testarConexao();
-  }
-
-  testarConexao() {
-    this.disciplinaService.testarConexao().subscribe({
-      next: (response) => {
-        console.log('✅ Conexão com backend:', response);
-      },
-      error: (error) => {
-        console.error('❌ Erro na conexão:', error);
-        this.errorMessage = 'Backend não está respondendo. Verifique se o servidor Spring Boot está rodando na porta 8080.';
-      }
-    });
   }
 
   onEnviar() {

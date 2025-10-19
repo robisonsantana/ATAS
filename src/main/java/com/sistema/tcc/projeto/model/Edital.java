@@ -6,6 +6,8 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import org.springframework.web.service.annotation.GetExchange;
 
+import java.sql.Time;
+
 @Entity
 public class Edital {
 
@@ -13,48 +15,13 @@ public class Edital {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    public Integer numeroEdital;
-    public Integer ano;
-    public Integer unidade;
-    public String modalidade;
+    //variaveis de acordo com o diagrama
+//    public Integer numeroEdital;
+//    public Integer ano;
+//    public Integer unidade;
+//    public String modalidade;
+//    public Time horario;
 
-    public Long getId() {
-        return id;
-    }
+    //variaveis de acordo com o form solicitação-edital
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Integer getNumeroEdital() {
-        return numeroEdital;
-    }
-
-    public void setNumeroEdital(Integer numeroEdital) {
-        this.numeroEdital = numeroEdital;
-    }
-
-    public Integer getAno() {
-        return ano;
-    }
-
-    public void setAno(Integer ano) {
-        this.ano = ano;
-    }
-
-    public Integer getUnidade() {
-        return unidade;
-    }
-
-    public void setUnidade(Integer unidade) {
-        this.unidade = unidade;
-    }
-
-    public String getModalidade() {
-        return modalidade;
-    }
-
-    public void setModalidade(String modalidade) {
-        this.modalidade = modalidade;
-    }
 }

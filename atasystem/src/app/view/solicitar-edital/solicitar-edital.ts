@@ -57,65 +57,6 @@ export class SolicitarEditalComponent {
 
   constructor(private router: Router) {}
 
-  onSubmit() {
-    // verificaçoes
-    if (!this.disciplinaSelecionada) {
-      this.errorMessage = 'Selecione o nome da disciplina';
-      return;
-    }
-
-    if (!this.turnoSelecionado) {
-      this.errorMessage = 'Selecione o turno';
-      return;
-    }
-
-    if (!this.horaInicio) {
-      this.errorMessage = 'Informe o horário';
-      return;
-    }
-
-    if (!this.diaSemana) {
-      this.errorMessage = 'Selecione o dia da semana';
-      return;
-    }
-
-    if (!this.modalidade) {
-      this.errorMessage = 'Selecione a modalidade';
-      return;
-    }
-
-    if (!this.tipo) {
-      this.errorMessage = 'Selecione o tipo';
-      return;
-    }
-
-    this.loading = true;
-    this.errorMessage = '';
-
-    const solicitacao = {
-      disciplina: this.disciplinaSelecionada,
-      turno: this.turnoSelecionado,
-      horario: this.horaInicio,
-      diaSemana: this.diaSemana,
-      modalidade: this.modalidade,
-      tipo: this.tipo,
-      dataEnvio: new Date()
-    };
-
-    console.log('Solicitação de edital:', solicitacao);
-
-    // simular delay da API
-    setTimeout(() => {
-      this.loading = false;
-      this.successMessage = 'Solicitação enviada com sucesso!';
-
-      setTimeout(() => {
-        this.clearForm();
-        this.successMessage = '';
-      }, 2000);
-    }, 1500);
-  }
-
   private clearForm() {
     this.disciplinaSelecionada = '';
     this.turnoSelecionado = '';
@@ -151,5 +92,19 @@ export class SolicitarEditalComponent {
 
   isDiaSelecionado(dia: string): boolean {
     return this.diasSemana.includes(dia);
+  }
+
+  onEnviar() {
+    const editalData = {
+      //disciplinaSelecionada: this.disciplinaSelecionada,
+      turnoSelecionado: this.turnoSelecionado,
+      horaInicio: this.horaInicio,
+      horaFim: this.horaFim,
+      diaSemana: this.diaSemana,
+      //modalidade: this.modalidade,
+      tipo: this.tipo,
+      dataCriacao: new Date().toISOString().split('T')[0],
+
+    }
   }
 }
