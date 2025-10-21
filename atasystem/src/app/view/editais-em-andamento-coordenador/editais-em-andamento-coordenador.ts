@@ -43,7 +43,9 @@ export class EditaisEmAndamentoCoordenador implements OnInit {
         candidatos: [],
         disciplina: 'Engenharia de Software',
         status: 'Em andamento',
-        dataAbertura: new Date('2024-05-01')
+        dataAbertura: new Date('2024-05-01'),
+        modalidade: 'Presencial',
+        ano: 2025
       },
       {
         id: 2,
@@ -52,7 +54,9 @@ export class EditaisEmAndamentoCoordenador implements OnInit {
         candidatos: [],
         disciplina: 'Banco de Dados',
         status: 'Em Análise',
-        dataAbertura: new Date('2024-06-15')
+        dataAbertura: new Date('2024-06-15'),
+        modalidade: 'EAD',
+        ano: 2024
       },
       {
         id: 3,
@@ -61,7 +65,9 @@ export class EditaisEmAndamentoCoordenador implements OnInit {
         candidatos: [],
         disciplina: 'Redes de Computadores',
         status: 'Em andamento',
-        dataAbertura: new Date('2024-06-15')
+        dataAbertura: new Date('2024-06-15'),
+        modalidade: 'Presencial',
+        ano: 2025
       }
     ];
 

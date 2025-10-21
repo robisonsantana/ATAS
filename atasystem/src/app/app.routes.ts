@@ -15,6 +15,7 @@ import { EditalMenuComponent } from './view/edital-menu/edital-menu';
 import { SolicitacoesComponent } from './view/solicitacoes/solicitacoes';
 import { SolicitacoesCoordenadorComponent } from './view/solicitacoes-coordenador/solicitacoes-coordenador';
 import { EditaisEmAndamentoCoordenador } from './view/editais-em-andamento-coordenador/editais-em-andamento-coordenador';
+import { AbrirEdital } from './view/abrir-edital/abrir-edital';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -35,6 +36,7 @@ export const routes: Routes = [
   { path: 'solicitacoes-abertas-coordenador', component:SolicitacoesCoordenadorComponent },
   { path: 'solicitacoes-abertas-ata', component: SolicitacoesComponent},
   { path: 'editais-em-andamento-coordenador', component: EditaisEmAndamentoCoordenador },
+  { path: 'abrir-edital', component: AbrirEdital },
   // { path: 'editais-andamento',  },
   { path: '**', redirectTo: '/login' } // rota coringa para paginas nao encontradas
 ];

@@ -1,0 +1,42 @@
+<div class="container">
+
+    <div class="container_abrir_edital">
+
+        <div class="container_form">
+            <div class="container_itens_titulo">
+                <label class="label_edital">Título do Edital</label>
+                <input class="input_edital" type="text" [(ngModel)]="editalSolicitado.titulo">
+            </div> 
+            <div class="container_itens">
+                <label class="label_edital">Disciplina</label>
+                <input class="input_edital" type="text" [(ngModel)]="editalSolicitado.disciplina">
+            </div>
+            <div class="container_itens">
+                <label class="label_edital">Número do Edital</label>
+                <input class="input_edital" type="text" [(ngModel)]="editalSolicitado.numeroEdital">
+            </div>
+            <div class="container_itens">
+                <label class="label_edital">Ano</label>
+                <input class="input_edital" type="number" [(ngModel)]="editalSolicitado.ano">
+            </div>
+            <div class="container_itens">
+                <label class="label_edital">Modalidade</label>
+                <radio-group class="radio_group_modalidade" [(ngModel)]="editalSolicitado.modalidade">
+                    <label class="label_radio">
+                        <input type="radio" name="modalidade" value="Presencial" checked /> Presencial
+                    </label>
+                    <label class="label_radio">
+                        <input type="radio" name="modalidade" value="EAD" /> EAD
+                    </label>
+                    <label class="label_radio">
+                        <input type="radio" name="modalidade" value="Híbrido" /> Híbrido
+                    </label>
+                </radio-group>
+            </div>
+
+            <!-- TODO: botao de cadastrar -->
+        </div>
+
+    </div>
+
+</div>

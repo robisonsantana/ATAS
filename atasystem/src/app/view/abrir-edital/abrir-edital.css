@@ -1,0 +1,66 @@
+.container {
+    display: flex;
+    justify-content: center;
+    height: 100vh; 
+}
+
+.container_abrir_edital {
+    background-color: #c0c0c0;
+    width: 50%;
+    height: 80%;
+    border-radius: 12px;
+    margin-top: 40px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.container_form {
+    background-color: #f8f9fa;
+    width: 96%;
+    height: 94%;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+}
+
+.container_itens {
+    display: flex;
+    flex-direction: column;
+    margin-top: 5px;
+    margin-left: 30px;
+    width: 90%;;
+}
+
+.container_itens_titulo {
+    display: flex;
+    flex-direction: column;
+    margin-top: 25px;
+    margin-left: 30px;
+    width: 90%;;
+}
+
+.input_edital {
+    margin-top: 5px;
+    margin-bottom: 15px;
+    height: 30px;
+    border-radius: 8px;
+    border: 2px solid #c0c0c0;
+    color: #808080;
+    font-size: 14px;
+}
+
+.label_edital {
+    color: #808080;
+    font-size: 18px;
+}
+
+.label_radio {
+    color: #808080;
+    font-size: 16px;
+    margin-top: 5px;
+}
+
+.label_radio input {
+    margin-top: 7px;
+}
