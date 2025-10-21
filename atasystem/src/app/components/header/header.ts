@@ -26,6 +26,11 @@ export class HeaderComponent implements OnInit {
     '/montar-banca': 'Montar Banca',
     '/register': 'Cadastrar Usuário',
     '/avaliacao-banca': 'Avaliação da Banca'
+    '/coordenador-menu': 'Menu Principal do Coordenador',
+    '/ata-menu': 'Menu Principal do Coordenador',
+    '/edital-menu': 'Menu do Edital',
+    '/solicitacoes-abertas-ata': 'Solicitações Para ATA',
+    '/solicitacoes-abertas-coordenador': 'Solicitações Efetuadas'
   };
 
   constructor(private router: Router) {}

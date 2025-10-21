@@ -31,11 +31,11 @@
 	</properties>
 	<dependencies>
 		<!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-oauth2-client -->
-		<dependency>
-    		<groupId>org.springframework.security</groupId>
-    			<artifactId>spring-security-oauth2-client</artifactId>
-    			<version>6.4.3</version>
-		</dependency>
+<!--		<dependency>-->
+<!--    		<groupId>org.springframework.security</groupId>-->
+<!--    			<artifactId>spring-security-oauth2-client</artifactId>-->
+<!--    			<version>6.4.3</version>-->
+<!--		</dependency>-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
@@ -63,14 +63,14 @@
 		</dependency>
 
 		<!--	dependencia do sistema de email do spring boot	-->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-mail</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-thymeleaf</artifactId>
-		</dependency>
+<!--		<dependency>-->
+<!--			<groupId>org.springframework.boot</groupId>-->
+<!--			<artifactId>spring-boot-starter-mail</artifactId>-->
+<!--		</dependency>-->
+<!--		<dependency>-->
+<!--			<groupId>org.springframework.boot</groupId>-->
+<!--			<artifactId>spring-boot-starter-thymeleaf</artifactId>-->
+<!--		</dependency>-->
 
 		<!--	dependencia do mysql	-->
 		<dependency>
@@ -80,10 +80,10 @@
 			<scope>runtime</scope>
 		</dependency>
 <!--		Dependencia do OAUTH2-->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-oauth2-client</artifactId>
-		</dependency>
+<!--		<dependency>-->
+<!--			<groupId>org.springframework.boot</groupId>-->
+<!--			<artifactId>spring-boot-starter-oauth2-client</artifactId>-->
+<!--		</dependency>-->
 	</dependencies>
 
 	<build>

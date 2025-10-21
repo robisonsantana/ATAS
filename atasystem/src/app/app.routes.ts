@@ -9,6 +9,11 @@ import { MontarBancaComponent } from './view/montar-banca/montar-banca';
 import { LoginComponent } from './view/login/login';
 import { AvaliacaoCandidatos } from './view/avaliacao-candidatos/avaliacao-candidatos';
 import { AvaliacaoBanca } from './view/avaliacao-banca/avaliacao-banca';
+import { CoordenadorMenuComponent } from './view/coordenador-menu/coordenador-menu';
+import { AtaMenuComponent } from './view/ata-menu/ata-menu';
+import { EditalMenuComponent } from './view/edital-menu/edital-menu';
+import { SolicitacoesComponent } from './view/solicitacoes/solicitacoes';
+import { SolicitacoesCoordenadorComponent } from './view/solicitacoes-coordenador/solicitacoes-coordenador';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -22,5 +27,12 @@ export const routes: Routes = [
   { path: 'analisar-recursos', component: DashboardComponent }, 
   { path: 'montar-banca', component: MontarBancaComponent }, 
   { path: 'avaliacao-banca', component: AvaliacaoBanca  },
+  { path: 'coordenador-menu', component: CoordenadorMenuComponent },
+  { path: 'ata-menu', component: AtaMenuComponent},
+  { path: 'edital-menu', component: EditalMenuComponent},
+  // { path: 'editais-anteriores', },
+  { path: 'solicitacoes-abertas-coordenador', component:SolicitacoesCoordenadorComponent },
+  { path: 'solicitacoes-abertas-ata', component: SolicitacoesComponent},
+  // { path: 'editais-andamento',  },
   { path: '**', redirectTo: '/login' } // rota coringa para paginas nao encontradas
 ];
