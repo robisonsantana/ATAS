@@ -14,4 +14,10 @@ import { FormsModule } from '@angular/forms';
 export class App  {
   protected readonly title = signal('atasystem');
 
+  private testService = inject(TestService);
+
+  ngOnInit(): void {
+    this.testService.testBackend();
+  }
+ 
 }
