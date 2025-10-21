@@ -5,6 +5,12 @@ import { SubHeaderComponent } from './components/subheader/subheader';
 import { FooterComponent } from './components/footer/footer';
 import { FormsModule } from '@angular/forms';
 
+// // Minimal local declaration to satisfy the TypeScript compiler when TestService isn't imported from elsewhere.
+// // Remove this declaration and import the real TestService when available.
+// declare class TestService {
+//   testBackend(): void;
+// }
+
 @Component({
   selector: 'app-root',
   imports: [RouterOutlet, HeaderComponent, SubHeaderComponent, FooterComponent, FormsModule],
@@ -12,12 +18,12 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './app.css'
 })
 export class App  {
-  protected readonly title = signal('atasystem');
+  // protected readonly title = signal('atasystem');
 
-  private testService = inject(TestService);
+  // private testService = inject(TestService);
 
-  ngOnInit(): void {
-    this.testService.testBackend();
-  }
+  // ngOnInit(): void {
+  //   this.testService.testBackend();
+  // }
  
 }
