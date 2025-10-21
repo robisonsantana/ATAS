@@ -4,8 +4,12 @@ export class Edital {
 
     constructor(
     public id: number,
+    public titulo: string,
+    public numeroEdital: string,
     public candidatos: Candidato[],
-    public nomeEdital: string
+    public disciplina: string,
+    public status: string,
+    public dataAbertura: Date
     ) { }
 
 }

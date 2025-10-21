@@ -5,7 +5,7 @@
         <select [(ngModel)]="editalSelecionado" class="select">
           <option value="" class="options">-- Escolha um edital --</option>
           <option *ngFor="let edital of editais" [ngValue]="edital" class="options">
-            {{ edital.nomeEdital }}
+            {{ edital.titulo }}
           </option>
         </select>
       </div>
