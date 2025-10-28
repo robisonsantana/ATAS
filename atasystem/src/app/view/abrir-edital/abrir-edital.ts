@@ -22,7 +22,7 @@ export class AbrirEdital {
     2025
   );
 
-  public fun abrirEdital() {
+  public abrirEdital() {
     console.log('Edital solicitado:', this.editalSolicitado);
     // Lógica para enviar o edital para o backend ou processá-lo conforme necessário
   }
