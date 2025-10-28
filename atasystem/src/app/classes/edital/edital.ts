@@ -9,7 +9,9 @@ export class Edital {
     public candidatos: Candidato[],
     public disciplina: string,
     public status: string,
-    public dataAbertura: Date
+    public dataAbertura: Date,
+    public modalidade: string,
+    public ano: number
     ) { }
 
 }
