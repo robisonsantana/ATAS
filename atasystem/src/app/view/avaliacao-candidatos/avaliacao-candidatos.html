@@ -1,18 +1,14 @@
 <div class="container">
   <div class="container_candidatos">
     <div class="container_nomes">
-      <div class="container_editais">
-        <select [(ngModel)]="editalSelecionado" class="select">
-          <option value="" class="options">-- Escolha um edital --</option>
-          <option *ngFor="let edital of editais" [ngValue]="edital" class="options">
-            {{ edital.titulo }}
-          </option>
-        </select>
-      </div>
-
-      <div class="container_candidatos-nomes" *ngIf="editalSelecionado">
+      <div class="container_candidatos-nomes">
         <ul class="lista_candidatos">
-          <li *ngFor="let candidato of editalSelecionado.candidatos" class="item_candidato">
+          <!-- Adicione (click) para selecionar o candidato e [class.active] para destacar -->
+          <li 
+            *ngFor="let candidato of editalSelecionado.candidatos" 
+            class="item_candidato"
+            (click)="selecionarCandidato(candidato)"
+            [class.active]="candidato === candidatoSelecionado">
             {{ candidato.nome }}
           </li>
         </ul>
@@ -20,17 +16,30 @@
     </div>
   </div>
 
-  <div class="container_dados">
-    <div class="top">
-      <div class="container_infos-pessoais">infos pessoais</div>
-      <div class="top-right">
-        <div class="container_motivo">motivo</div>
-        <div class="container_pontuacao">pontuação corrigida</div>
+  <div class="container_right">
+    <div class="edital">
+      <h1>Edital {{ editalSelecionado.numeroEdital }}</h1>
+    </div>
+    <div class="container_border">
+
+      <!-- Exibe apenas o candidato selecionado -->
+      <div class="container_dados" *ngIf="candidatoSelecionado">
+        <h2 class="nome">Nome: {{candidatoSelecionado.nome}}</h2>
+        <h2 class="outros_dados">RG: {{candidatoSelecionado.rg}}</h2>
+        <h2 class="outros_dados">CPF: {{candidatoSelecionado.cpf}}</h2>
       </div>
+
+      <div class="container_documentos">
+        <h2>Documentos Anexados:</h2>
+        <div class="docs-container">
+          <div class="doc" *ngFor="let documento of candidatoSelecionado?.documentos">
+            <a href="#">{{ documento }}</a>
+          </div>
+        </div>
+      </div>
+
     </div>
 
-    <div class="bottom">
-      <div class="container_documentos">documentos</div>
-    </div>
   </div>
+
 </div>
