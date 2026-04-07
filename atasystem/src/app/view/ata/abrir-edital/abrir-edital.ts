@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Edital } from '../../classes/edital/edital';
+import { Edital } from '../../../classes/edital/edital';
 import { FormsModule } from '@angular/forms';
 
 @Component({

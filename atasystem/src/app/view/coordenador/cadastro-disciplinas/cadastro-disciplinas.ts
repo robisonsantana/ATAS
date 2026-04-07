@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
-import { DisciplinaService } from '../../services/disciplina.service';
+import { DisciplinaService } from '../../../services/disciplina.service';
 
 @Component({
   selector: 'app-cadastro-disciplinas',
@@ -11,7 +11,7 @@ import { DisciplinaService } from '../../services/disciplina.service';
   templateUrl: './cadastro-disciplinas.html',
   styleUrls: ['./cadastro-disciplinas.css']
 })
-export class CadastroDisciplinasComponent {
+export class CadastroDisciplinas {
   disciplina: string = '';
   curso: string = '';
   objetivo: string = '';

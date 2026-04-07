@@ -30,7 +30,9 @@ export class HeaderComponent implements OnInit {
     '/ata-menu': 'Menu Principal do Coordenador',
     '/edital-menu': 'Menu do Edital',
     '/solicitacoes-abertas-ata': 'Solicitações Para ATA',
-    '/solicitacoes-abertas-coordenador': 'Solicitações Efetuadas'
+    '/solicitacoes-abertas-coordenador': 'Solicitações Efetuadas',
+    '/editais-em-andamento-coordenador': 'Editais em Andamento',
+    '/abrir-edital': 'Abrir Edital'
   };
 
   constructor(private router: Router) {}

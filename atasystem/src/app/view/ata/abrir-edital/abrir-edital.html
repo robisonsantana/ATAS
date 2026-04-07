@@ -19,20 +19,6 @@
                 <label class="label_edital">Ano</label>
                 <input class="input_edital" type="number" [(ngModel)]="editalSolicitado.ano">
             </div>
-            <div class="container_itens">
-                <label class="label_edital">Modalidade</label>
-                <radio-group class="radio_group_modalidade" [(ngModel)]="editalSolicitado.modalidade">
-                    <label class="label_radio">
-                        <input type="radio" name="modalidade" value="Presencial" checked /> Presencial
-                    </label>
-                    <label class="label_radio">
-                        <input type="radio" name="modalidade" value="EAD" /> EAD
-                    </label>
-                    <label class="label_radio">
-                        <input type="radio" name="modalidade" value="Híbrido" /> Híbrido
-                    </label>
-                </radio-group>
-            </div>
 
             <div class="container_btn">
                 <button class="btn_cadastrar">Cadastrar</button>

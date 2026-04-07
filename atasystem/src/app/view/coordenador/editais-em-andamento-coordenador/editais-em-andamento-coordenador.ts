@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
-import { Edital } from '../../classes/edital/edital';
+import { Edital } from '../../../classes/edital/edital';
 
 
 //depois tem que arrumar isso...

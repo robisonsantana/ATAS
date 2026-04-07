@@ -17,7 +17,7 @@ interface Solicitacao {
   standalone: true,
   imports: [CommonModule],
   templateUrl: './solicitacoes.html',
-  styleUrl: './solicitacoes.css'
+  styleUrls: ['./solicitacoes.css']
 })
 
 export class SolicitacoesComponent implements OnInit {
@@ -83,7 +83,7 @@ export class SolicitacoesComponent implements OnInit {
   visualizarSolicitacao(solicitacao: Solicitacao) {
     console.log('Navegando para a tela de abrir edital:', solicitacao);
     // navegar para tela de detalhes ou abrir modal (depois vejo isso no back)
-    this.router.navigate(['/abrir-edital', solicitacao.id]);
+    this.router.navigate(['/abrir-edital']);
   }
 
   getStatusClass(status: string): string {

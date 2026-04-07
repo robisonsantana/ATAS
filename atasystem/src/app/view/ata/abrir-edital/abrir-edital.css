@@ -1,7 +1,7 @@
 .container {
   display: flex;
   justify-content: center;
-  height: 95vh;
+  height: 83vh;
 }
 
 .container_abrir_edital {
@@ -54,16 +54,6 @@
 .label_edital {
   color: #808080;
   font-size: 18px;
-}
-
-.label_radio {
-  color: #808080;
-  font-size: 16px;
-  margin-top: 5px;
-}
-
-.label_radio input {
-  margin-top: 7px;
 }
 
 .container_btn {

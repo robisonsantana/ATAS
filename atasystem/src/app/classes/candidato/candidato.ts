@@ -6,7 +6,8 @@ export class Candidato {
         public rg: string,
         public motivo: string,
         public pontuacao: number,
-        public documentos: string[]
+        public documentos: string[],
+        public pontuacaoDif: boolean = false
     ) { }
 
 }
