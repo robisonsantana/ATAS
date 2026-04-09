@@ -1,0 +1,15 @@
+<div class="titulo-pagina-coordenador">
+  <h1>Seja Bem-Vindo, Coordenador</h1>
+</div>
+<div class="dashboard-container">
+  <div class="menu-grid">
+    <button class="menu-item" *ngFor="let item of menuItems" (click)="navigateTo(item.route)">
+      {{ item.title }}
+    </button>
+  </div>
+</div>
+<div class="btn-change">
+  <button class="change-route">
+    <a href="/ata-menu">Ir para menu ATA</a>
+  </button>
+</div>

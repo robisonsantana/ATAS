@@ -1,0 +1,224 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    margin: 1%;
+    gap: 16px;
+    height: calc(100vh - 160px); /* ajuste conforme altura da header+subheader */
+    color: #808080;
+}
+
+/* ── Painel esquerdo ── */
+.container_candidatos {
+    width: 28%;
+    min-width: 220px;
+    background-color: #c0c0c0;
+    border-radius: 13px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 12px;
+    box-sizing: border-box;
+}
+
+.container_nomes {
+    background-color: #f8f9fa;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    align-items: center;
+    overflow-y: auto;
+    font-weight: bold;
+}
+
+.container_editais {
+    background-color: #c0c0c0;
+    width: 90%;
+    min-height: 44px;
+    margin-top: 15px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    position: relative; /* necessário para posicionar a seta */
+}
+
+.select {
+    width: 100%;
+    height: 100%;
+    padding: 8px 36px 8px 12px; /* espaço para a seta customizada */
+    border-radius: 8px;
+    border: 0;
+    background-color: transparent;
+    font-size: 1rem;
+    cursor: pointer;
+    appearance: none;           /* remove seta nativa */
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center; /* 12px da borda direita */
+}
+
+.options {
+    background-color: #c0c0c0;
+}
+
+.container_candidatos-nomes {
+    width: 90%;
+    margin-top: 10px;
+}
+
+.lista_candidatos {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.item_candidato {
+    padding: 10px 8px;
+    border-bottom: 1px solid #c0c0c0;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.item_candidato:last-child {
+    border-bottom: none;
+}
+
+.item_candidato:hover {
+    background-color: #e9ecef;
+}
+
+/* ── Painel direito ── */
+.container_dados {
+    flex: 1;
+    background-color: #c0c0c0;
+    border-radius: 13px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 12px;
+    box-sizing: border-box;
+}
+
+.top {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    flex: 1;           /* ocupa metade do espaço vertical */
+}
+
+.container_infos-pessoais {
+    flex: 6;           /* ~60% da largura do top */
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    padding: 12px;
+}
+
+.top-right {
+    flex: 4;           /* ~40% da largura do top */
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.container_motivo,
+.container_pontuacao {
+    flex: 1;           /* divide igualmente o espaço vertical */
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    padding: 12px;
+}
+
+.bottom {
+    flex: 1;           /* ocupa a outra metade do espaço vertical */
+}
+
+.container_documentos {
+    height: 100%;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    padding: 12px;
+    box-sizing: border-box;
+}
+
+.item_candidato--selecionado {
+  background-color: #c0c0c0;
+  border-radius: 6px;
+  font-weight: bold;
+}
+
+.candidato-nome {
+  font-size: 34px;
+  font-weight: bold;
+  margin: 0 0 10px 0;
+}
+
+.candidato-info {
+  margin: 4px 0;
+  font-size: 20px;
+  color: #808080;
+}
+
+.secao-titulo {
+  font-weight: bold;
+  margin: 0 0 6px 0;
+  font-size: 24px;
+}
+
+.placeholder-label {
+  color: #888;
+  font-size: 18px;
+}
+
+.documentos-lista {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.documento-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #e9ecef;
+  border-radius: 8px;
+  padding: 6px 12px;
+  height: 50px;
+  width: fit-content;
+}
+
+.documento-nome {
+  font-size: 18px;
+}
+
+.btn-download {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  color: #808080;
+}
+
+.btn-download:hover {
+  color: #000;
+}
+
+.pontuacao-dif {
+  font-size: 14px;
+  color: #c0392b;
+  margin: 4px 0 0 0;
+  font-style: italic;
+}
+
+.download-icon {
+  width: 18px;
+  height: 18px;
+  display: block;
+}

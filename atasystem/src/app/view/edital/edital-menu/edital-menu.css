@@ -1,0 +1,76 @@
+.dashboard-container {
+  padding: 40px;
+  min-height: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  gap: 30px;
+  max-width: 900px;
+  width: 100%;
+}
+
+.menu-item {
+  background-color: #d9d9d9;
+  border: none;
+  border-radius: 8px;
+  padding: 40px 20px;
+  font-size: 24px;
+  font-weight: 500;
+  color: #808080;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+  min-height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.menu-item:hover {
+  background-color: #c0c0c0;
+  color: #808080;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.menu-item:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+  .menu-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 200px;
+  }
+  
+  .dashboard-container {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .menu-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+}
+
+.titulo-pagina-edital{
+  color: #808080;
+  margin-top: 40px;
+  text-align: center;
+}
+
+.btn-change {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
