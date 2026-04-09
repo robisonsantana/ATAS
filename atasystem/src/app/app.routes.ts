@@ -1,6 +1,5 @@
 import { Routes } from '@angular/router';
 
-import { DashboardComponent } from './components/dashboard/dashboard';
 import { RegisterComponent  } from "./view/authentication/register/register";
 import { SolicitarEditalComponent } from './view/coordenador/solicitar-edital/solicitar-edital';
 import { CadastroDisciplinas } from './view/coordenador/cadastro-disciplinas/cadastro-disciplinas';
@@ -21,12 +20,11 @@ export const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'dashboard', component: DashboardComponent },
   { path: 'avaliacao-candidatos', component: AvaliacaoCandidatos },
   { path: 'editar-ata', component: EditarAta }, 
   { path: 'solicitar-edital', component: SolicitarEditalComponent }, 
   { path: 'cadastro-disciplinas', component: CadastroDisciplinas }, 
-  { path: 'analisar-recursos', component: DashboardComponent }, 
+  { path: 'analisar-recursos', component: LoginComponent }, 
   { path: 'montar-banca', component: MontarBancaComponent }, 
   { path: 'avaliacao-banca', component: AvaliacaoBanca  },
   { path: 'coordenador-menu', component: CoordenadorMenuComponent },
