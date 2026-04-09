@@ -32,7 +32,15 @@ export class CoordenadorMenuComponent {
     },
     {
       title: 'Visualizar Editais em Andamento',
-      route: '/editais-andamento'
+      route: 'editais-em-andamento-coordenador'
+    },
+    {
+      title: 'Analisar Recursos',
+      route: '/analisar-recursos'
+    },
+    {
+      title: 'Administrar Dados',
+      route: '**'
     }
   ]
 

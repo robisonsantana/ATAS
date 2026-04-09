@@ -2,17 +2,31 @@
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  min-height: calc(100vh - 180px);
+  min-height: fit-content;
+  min-width: fit-content;
   background-color: #f8f9fa;
   padding: 30px 20px;
+  color: #808080;
+}
+
+.outline-form-box {
+  background-color: #d9d9d9;
+  border-radius: 14px;
+  padding: 20px;
+  min-height: fit-content;
+  min-width: fit-content;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  align-items: center;
+  display: flex;
+  justify-content: center;
 }
 
 .edital-form-box {
-  background-color: #c0c0c0;
+  background-color: #ffffff;
   border-radius: 12px;
   padding: 30px;
   width: 100%;
-  max-width: 630px;
+  max-width: 750px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
@@ -61,17 +75,20 @@
 }
 
 .form-time .form-input {
-  width: 88%;          /* input acompanha o tamanho do form-group */
+  width: 92%;          /* input acompanha o tamanho do form-group */
   padding: 12px;
   border: 1px solid #ddd;
   border-radius: 4px;
   font-size: 14px;
   background-color: white;
+  border: 2px solid #c0c0c0;
+  border-radius: 10px;
+  box-shadow: #c0c0c0 2px 3px 10px 1px;
 }
 
 .form-label {
-  font-size: 14px;
-  color: #333;
+  font-size: 18px;
+  color: #808080;
   font-weight: 500;
   margin-bottom: 8px;
 }
@@ -85,6 +102,7 @@
   background-color: white;
   transition: border-color 0.3s;
   appearance: none;
+  color: #808080;
 }
 
 .form-select {
@@ -94,6 +112,9 @@
   background-position: right 12px center;
   background-size: 12px;
   padding-right: 35px;
+  border: 2px solid #c0c0c0;
+  border-radius: 10px;
+  box-shadow: #c0c0c0 2px 3px 10px 1px;
 }
 
 .form-input:focus,
@@ -131,9 +152,10 @@
 
 .radio-label {
   font-size: 14px;
-  color: #333;
+  color: #808080;
   cursor: pointer;
   user-select: none;
+  font-size: 18px;
 }
 
 .radio-item input[type="radio"]:disabled + .radio-label {
@@ -142,11 +164,11 @@
 }
 
 .submit-btn {
-  background-color: #6c757d;
-  color: white;
-  border: none;
+  background-color: transparent;
+  color: #808080;
+  border: 2px solid #c0c0c0;
   padding: 14px;
-  border-radius: 4px;
+  border-radius: 10px;
   font-size: 16px;
   font-weight: 500;
   cursor: pointer;
@@ -155,7 +177,8 @@
 }
 
 .submit-btn:hover:not(:disabled) {
-  background-color: #5a6268;
+  background-color: #c0c0c0;
+  color: #ffffff;
   transform: translateY(-1px);
 }
 

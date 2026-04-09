@@ -27,12 +27,12 @@ export class HeaderComponent implements OnInit {
     '/register': 'Cadastrar Usuário',
     '/avaliacao-banca': 'Avaliação da Banca',
     '/coordenador-menu': 'Menu Principal do Coordenador',
-    '/ata-menu': 'Menu Principal do Coordenador',
+    '/ata-menu': 'Menu Principal do ATA',
     '/edital-menu': 'Menu do Edital',
     '/solicitacoes-abertas-ata': 'Solicitações Para ATA',
     '/solicitacoes-abertas-coordenador': 'Solicitações Efetuadas',
     '/editais-em-andamento-coordenador': 'Editais em Andamento',
-    '/abrir-edital': 'Abrir Edital'
+    '/abrir-edital': 'Abrir Edital',
   };
 
   constructor(private router: Router) {}

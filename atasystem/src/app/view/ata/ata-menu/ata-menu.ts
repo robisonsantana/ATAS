@@ -21,6 +21,14 @@ export class AtaMenuComponent {
       {
         title: 'Ver Solicitações Abertas',
         route: '/solicitacoes-abertas-ata'
+      },
+      {
+        title: 'Abrir Edital',
+        route: '/abrir-edital'
+      },
+      {
+        title: 'Administrar Dados',
+        route: '**'
       }
     ]
   

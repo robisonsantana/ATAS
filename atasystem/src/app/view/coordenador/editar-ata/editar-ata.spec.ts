@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { EditarAta } from './editar-ata';
+import { EditarAta } from '../../coordenador/editar-ata/editar-ata';
 
 describe('EditarAta', () => {
   let component: EditarAta;

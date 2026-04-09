@@ -4,7 +4,7 @@ import { DashboardComponent } from './components/dashboard/dashboard';
 import { RegisterComponent  } from "./view/authentication/register/register";
 import { SolicitarEditalComponent } from './view/coordenador/solicitar-edital/solicitar-edital';
 import { CadastroDisciplinas } from './view/coordenador/cadastro-disciplinas/cadastro-disciplinas';
-import { EditarAtaComponent } from "./view/coordenador/editar-ata/editar-ata";
+import { EditarAta } from "./view/coordenador/editar-ata/editar-ata";
 import { MontarBancaComponent } from './view/edital/montar-banca/montar-banca';
 import { LoginComponent } from './view/authentication/login/login';
 import { AvaliacaoCandidatos } from './view/coordenador/avaliacao-candidatos/avaliacao-candidatos';
@@ -23,7 +23,7 @@ export const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'avaliacao-candidatos', component: AvaliacaoCandidatos },
-  { path: 'editar-ata', component: EditarAtaComponent }, 
+  { path: 'editar-ata', component: EditarAta }, 
   { path: 'solicitar-edital', component: SolicitarEditalComponent }, 
   { path: 'cadastro-disciplinas', component: CadastroDisciplinas }, 
   { path: 'analisar-recursos', component: DashboardComponent }, 

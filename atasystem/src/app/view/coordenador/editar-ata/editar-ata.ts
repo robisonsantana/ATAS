@@ -17,7 +17,7 @@ interface Edital {
   templateUrl: './editar-ata.html',
   styleUrls: ['./editar-ata.css']
 })
-export class EditarAtaComponent {
+export class EditarAta {
   editais: Edital[] = [
     {
       id: '1',

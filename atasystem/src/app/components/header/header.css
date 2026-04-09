@@ -12,12 +12,6 @@
   flex: 1;
 }
 
-.logo {
-  font-size: 18px;
-  font-weight: bold;
-  color: #FF161F;
-}
-
 .logo-image {
   height: 270px;
   width: auto;
@@ -36,9 +30,9 @@
 
 .main-title {
   margin: 0;
-  font-size: 24px;
+  font-size: 28px;
   font-weight: bold;
-  color: #333;
+  color: #808080;
 }
 
 .header-right {
