@@ -1,0 +1,187 @@
+{
+	"info": {
+		"_postman_id": "47964265-ad99-4bea-80b4-d53982bbfe78",
+		"name": "ATASystem",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "49030553"
+	},
+	"item": [
+		{
+			"name": "Disciplina",
+			"item": [
+				{
+					"name": "Criar Disciplina",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"disciplina\": \"Programação Orientada a Objetos\",\n  \"curso\": \"Ciência da Computação\",\n  \"modeloDisciplina\": \"Presencial\",\n  \"objetivo\": \"Ensinar conceitos de POO\",\n  \"ementa\": \"Classes, objetos, herança, polimorfismo\",\n  \"descricao\": \"Disciplina introdutória de programação orientada a objetos\",\n  \"turnoManha\": true,\n  \"turnoTarde\": false,\n  \"turnoNoite\": false,\n  \"quantidadeAulas\": 60,\n  \"diasSemana\": [\"SEGUNDA\", \"QUARTA\"],\n  \"dataCriacao\": \"2026-04-05\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/disciplina",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"disciplina"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Edital",
+			"item": [
+				{
+					"name": "Ver Editais Solicitados",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"nome\": \"Edital de Matemática\",\n  \"disciplina\": {\n    \"id\": 1\n  },\n  \"ano\": \"2026-01-01T00:00:00\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/edital/solicitados",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"edital",
+								"solicitados"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Ver Editais Aprovados",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"nome\": \"Edital de Matemática\",\n  \"disciplina\": {\n    \"id\": 1\n  },\n  \"ano\": \"2026-01-01T00:00:00\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/edital/aprovados",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"edital",
+								"aprovados"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Solicitar Edital",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"nome\": \"Edital de Matemática\",\n  \"disciplina\": {\n    \"id\": 1\n  },\n  \"ano\": \"2026-01-01T00:00:00\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/edital/solicitar-edital",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"edital",
+								"solicitar-edital"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Aprovar Edital",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/edital/1/aprovar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"edital",
+								"1",
+								"aprovar"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Saúde da API",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/edital/health",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"edital",
+						"health"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
