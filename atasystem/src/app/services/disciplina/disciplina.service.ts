@@ -4,7 +4,7 @@ import { Observable, catchError, throwError } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class DisciplinaService {
-  private apiUrl = 'http://localhost:8080/cadastro-disciplina';
+  private apiUrl = 'http://localhost:8080/disciplina';
 
   constructor(private http: HttpClient) {}
 

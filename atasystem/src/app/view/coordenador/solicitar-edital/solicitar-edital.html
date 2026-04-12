@@ -23,8 +23,8 @@
           [disabled]="loading"
         >
           <option value="">Selecionar</option>
-          <option *ngFor="let disciplina of disciplinas" [value]="disciplina.nome">
-            {{ disciplina.nome }}
+          <option *ngFor="let disciplina of disciplinas" [value]="disciplina.id">
+            {{ disciplina.disciplina }}
           </option>
         </select>
         <div class="select-arrow"></div>

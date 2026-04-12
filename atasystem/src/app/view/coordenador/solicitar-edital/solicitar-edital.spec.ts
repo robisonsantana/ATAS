@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SolicitarEdital } from './solicitar-edital';
+import { SolicitarEditalComponent } from './solicitar-edital';
 
 describe('SolicitarEdital', () => {
-  let component: SolicitarEdital;
-  let fixture: ComponentFixture<SolicitarEdital>;
+  let component: SolicitarEditalComponent;
+  let fixture: ComponentFixture<SolicitarEditalComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [SolicitarEdital]
+      imports: [SolicitarEditalComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(SolicitarEdital);
+    fixture = TestBed.createComponent(SolicitarEditalComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
