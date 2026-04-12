@@ -2,10 +2,11 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { EditalService } from '../../../services/edital/edital.service';
 
 interface Disciplina {
   id: number;
-  nome: string;
+  disciplina: string; 
 }
 
 interface Turno {
@@ -20,13 +21,13 @@ interface Turno {
   templateUrl: './solicitar-edital.html',
   styleUrls: ['./solicitar-edital.css']
 })
+
 export class SolicitarEditalComponent {
   // dados do formulário
-  disciplinaSelecionada: string = '';
+  disciplinaSelecionada: number | null = null;
   turnoSelecionado: string = '';
   horaInicio: string = '';
   horaFim: string = '';
-  diaSemana: string = '';
 
   // radio buttons
   modalidade: string = '';
@@ -37,17 +38,8 @@ export class SolicitarEditalComponent {
   successMessage: string = '';
   errorMessage: string = '';
 
-  // opçoes de disciplina (depois alterar pra apenas as disciplinas cadastradas)
-  disciplinas: Disciplina[] = [
-    { id: 1, nome: 'Matemática' },
-    { id: 2, nome: 'Português' },
-    { id: 3, nome: 'História' },
-    { id: 4, nome: 'Geografia' },
-    { id: 5, nome: 'Ciências' },
-    { id: 6, nome: 'Inglês' },
-    { id: 7, nome: 'Educação Física' },
-    { id: 8, nome: 'Artes' }
-  ];
+  // alterado para puxar do back
+  disciplinas: Disciplina[] = [];
 
   turnos: Turno[] = [
     { id: 'manha', nome: 'Manhã' },
@@ -55,10 +47,14 @@ export class SolicitarEditalComponent {
     { id: 'noite', nome: 'Noite' }
   ];
 
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    private editalService: EditalService
+  ) {}
 
   onSubmit() {
     // verificaçoes
+    
     if (!this.disciplinaSelecionada) {
       this.errorMessage = 'Selecione o nome da disciplina';
       return;
@@ -74,13 +70,8 @@ export class SolicitarEditalComponent {
       return;
     }
 
-    if (!this.diaSemana) {
+    if (!this.diasSemana.length) {
       this.errorMessage = 'Selecione o dia da semana';
-      return;
-    }
-
-    if (!this.modalidade) {
-      this.errorMessage = 'Selecione a modalidade';
       return;
     }
 
@@ -92,35 +83,41 @@ export class SolicitarEditalComponent {
     this.loading = true;
     this.errorMessage = '';
 
-    const solicitacao = {
-      disciplina: this.disciplinaSelecionada,
-      turno: this.turnoSelecionado,
-      horario: this.horaInicio,
-      diaSemana: this.diaSemana,
-      modalidade: this.modalidade,
+    const dto = {
+      nome: `Edital ${new Date().getFullYear()}`, // pode ajustar depois
+      disciplinaId: this.disciplinaSelecionada,
+      curso: 'ADS', // pode vir de outro lugar depois
       tipo: this.tipo,
-      dataEnvio: new Date()
+      turno: this.turnoSelecionado.toUpperCase(), 
+      horario: `${this.horaInicio} - ${this.horaFim}`,
+      diasSemana: this.diasSemana.map(d => d.toUpperCase())
     };
 
-    console.log('Solicitação de edital:', solicitacao);
+    console.log('Solicitação de edital:', dto);
 
-    // simular delay da API
-    setTimeout(() => {
-      this.loading = false;
-      this.successMessage = 'Solicitação enviada com sucesso!';
+    this.editalService.solicitarEdital(dto).subscribe({
+      next: (res) => {
+        this.loading = false;
+        this.successMessage = 'Solicitação enviada com sucesso!';
 
-      setTimeout(() => {
         this.clearForm();
-        this.successMessage = '';
-      }, 2000);
-    }, 1500);
+
+        console.log('Resposta do backend:', res);
+      },
+      error: (err) => {
+        this.loading = false;
+        this.errorMessage = 'Erro ao enviar solicitação';
+
+        console.error(err);
+      }
+});
   }
 
   private clearForm() {
-    this.disciplinaSelecionada = '';
+    this.disciplinaSelecionada = null;    
     this.turnoSelecionado = '';
     this.horaInicio = '';
-    this.diaSemana = '';
+    this.diasSemana = [];
     this.modalidade = '';
     this.tipo = '';
   }
@@ -132,12 +129,12 @@ export class SolicitarEditalComponent {
 
   diasSemana: string[] = [];
   diasDisponiveis: string[] = [
-    'Segunda-Feira',
-    'Terça-Feira',
-    'Quarta-Feira',
-    'Quinta-Feira',
-    'Sexta-Feira',
-    'Sábado'
+    'SEGUNDA',
+    'TERCA',
+    'QUARTA',
+    'QUINTA',
+    'SEXTA',
+    'SABADO'  
   ];
 
   toggleDiaSemana(dia: string) {
@@ -151,5 +148,17 @@ export class SolicitarEditalComponent {
 
   isDiaSelecionado(dia: string): boolean {
     return this.diasSemana.includes(dia);
+  }
+
+  ngOnInit() {
+    this.editalService.getDisciplinas().subscribe({
+      next: (res) => {
+        this.disciplinas = res;
+        console.log('Disciplinas do banco:', res);
+      },
+      error: (err) => {
+        console.error('Erro ao buscar disciplinas', err);
+      }
+    });
   }
 }
